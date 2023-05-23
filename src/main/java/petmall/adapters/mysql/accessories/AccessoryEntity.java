@@ -1,6 +1,7 @@
 package petmall.adapters.mysql.accessories;
 
 import lombok.*;
+import petmall.adapters.mysql.Store;
 import petmall.domain.accessory.Accessory;
 
 import javax.persistence.*;
@@ -24,15 +25,10 @@ public class AccessoryEntity {
     private byte[] image;
     private String description;
     private BigDecimal price;
+    @ManyToOne
+    private Store store;
 
     public Accessory asAccessory() {
-        return new Accessory(
-                id,
-                name,
-                petType,
-                image,
-                description,
-                price
-        );
+        return new Accessory( id, name, petType, image, description, price, store);
     }
 }

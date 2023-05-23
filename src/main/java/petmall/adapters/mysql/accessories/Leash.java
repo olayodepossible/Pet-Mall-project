@@ -11,18 +11,13 @@ import java.math.BigDecimal;
  */
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("leash")
 public class Leash extends AccessoryEntity {
     private BigDecimal length;
     private String color;
     private String material;
-
-    public Leash(long id, String name, String pet_type, byte[] image, String description, BigDecimal price, BigDecimal length, String color, String material) {
-        super(id, name, pet_type, image, description, price);
-        this.length = length;
-        this.color = color;
-        this.material = material;
-    }
 }

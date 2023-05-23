@@ -44,7 +44,7 @@ public class PetController {
 
     @PutMapping("/pets/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Pet putPet(@PathVariable("id") long id, @Valid @RequestBody CreatePetRequest pet) {
+    public Pet updatePet(@PathVariable("id") long id, @Valid @RequestBody CreatePetRequest pet) {
         return petFacade.putPet(id, pet);
     }
 

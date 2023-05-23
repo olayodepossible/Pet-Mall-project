@@ -11,14 +11,11 @@ import java.math.BigDecimal;
  */
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("7")
 public class Laser extends AccessoryEntity {
     private String color;
-
-    public Laser(long id, String name, String pet_type, byte[] image, String description, BigDecimal price, String color) {
-        super(id, name, pet_type, image, description, price);
-        this.color = color;
-    }
 }

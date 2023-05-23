@@ -1,8 +1,6 @@
 package petmall.adapters.mysql.pet;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -11,16 +9,13 @@ import java.math.BigDecimal;
 /*
  * Cat - one of Pet object
  */
-@EqualsAndHashCode(callSuper = true)
-@Entity
-@DiscriminatorValue("cat")
 @Data
+@Entity
+@Builder
+@EqualsAndHashCode(callSuper = true)
+@DiscriminatorValue("cat")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Cat extends PetEntity {
     private CatBreed catBreed;
-
-    public Cat(Long id, String name, boolean gender, String description, byte[] image, BigDecimal price, CatBreed catBreed) {
-        super(id, name, gender, description, image, price);
-        this.catBreed = catBreed;
-    }
 }

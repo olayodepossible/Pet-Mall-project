@@ -3,6 +3,7 @@ package petmall.adapters.mysql.pet;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import petmall.adapters.mysql.user.UserEntity;
 import petmall.domain.pet.Pet;
 
 import javax.persistence.*;
@@ -27,15 +28,14 @@ public class PetEntity {
     private String description;
     private byte[] image;
     private BigDecimal price;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity owner;
+    @ManyToOne
+    private UserEntity vet;
+
 
     public Pet asPet() {
-        return new Pet(
-                id,
-                name,
-                gender,
-                description,
-                image,
-                price
-        );
+        return new Pet( id, name, gender, description, image, price, owner, vet);
     }
 }

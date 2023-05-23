@@ -36,7 +36,7 @@ public class AccessoryController {
     }
 
     @PutMapping("/accessories/{id}")
-    public Accessory putAccessory(@PathVariable long id,@Valid @RequestBody CreateAccessoryRequest accessory) {
+    public Accessory updateAccessory(@PathVariable long id,@Valid @RequestBody CreateAccessoryRequest accessory) {
         return accessoryFacade.putAccessory(id, accessory);
     }
 

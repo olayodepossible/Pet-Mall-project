@@ -1,6 +1,9 @@
 package petmall.api.accessory.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Value;
+import lombok.experimental.NonFinal;
+import petmall.adapters.mysql.Store;
 import petmall.adapters.mysql.accessories.AccessoryEntity;
 
 import javax.validation.constraints.NotEmpty;
@@ -17,26 +20,15 @@ public class CreateAccessoryRequest {
     String description;
     @NotNull
     BigDecimal price;
+    @JsonIgnore
+    @NonFinal
+    Store store;
 
     public AccessoryEntity asAccessory() {
-        return new AccessoryEntity(
-                null,
-                name,
-                petType,
-                image,
-                description,
-                price
-        );
+        return new AccessoryEntity(null, name, petType, image, description, price, store);
     }
 
     public AccessoryEntity asAccessory (Long id) {
-        return new AccessoryEntity(
-                id,
-                name,
-                petType,
-                image,
-                description,
-                price
-        );
+        return new AccessoryEntity(id, name, petType, image, description, price, store);
     }
 }
