@@ -7,6 +7,7 @@ import petmall.adapters.mysql.user.UserEntity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+
 @Value
 public class UserRequestPayload {
     @NotEmpty
@@ -20,12 +21,10 @@ public class UserRequestPayload {
     String email;
     @NotEmpty
     String password;
+    @NotEmpty
 
     public UserEntity asUser() {
-        return new UserEntity(null, username, firstName, lastName, email, password, null);
+        return new UserEntity(username, firstName, lastName, email, password, null);
     }
 
-    public UserEntity asUser(long id) {
-        return new UserEntity(id, username, firstName, lastName, email, password, null);
-    }
 }

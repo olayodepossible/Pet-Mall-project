@@ -17,7 +17,21 @@ public class UserService {
 
 
     public UserData createUser(UserRequestPayload payload) {
-        return userRepository.save(payload.asUser()).asUser();
+        UserEntity user = payload.asUser();
+        switch (payload.getUserType()){
+            case "admin":
+                user.addRole("ROLE_ADMIN");
+                break;
+            case "store_owner":
+                user.addRole("ROLE_OWNER_ADMIN");
+                break;
+            case "vet":
+                user.addRole("ROLE_VET_ADMIN");
+                break;
+            default:
+                user.addRole("ROLE_USER");
+        }
+        return userRepository.save(user).asUser();
     }
 
     public List<UserData> getAllUsers() {

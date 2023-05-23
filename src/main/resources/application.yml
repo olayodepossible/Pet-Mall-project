@@ -8,12 +8,11 @@ spring:
   jpa:
     hibernate:
       # Hibernate ddl auto (create, create-drop, validate, update)
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
-    show-sql: true
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
