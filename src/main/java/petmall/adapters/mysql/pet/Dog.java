@@ -1,22 +1,25 @@
 package petmall.adapters.mysql.pet;
 
 import lombok.*;
+import petmall.adapters.mysql.user.UserEntity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import java.math.BigDecimal;
 
-/*
- * Dog - one of Pet object
- */
-@EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("dog")
 @Data
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@DiscriminatorValue("dog")
+@EqualsAndHashCode(callSuper = true)
 public class Dog extends PetEntity {
     private DogBreed dogBreed;
+
+    public Dog(Long id, String name, boolean gender, String description,
+               byte[] image, BigDecimal price, UserEntity owner, UserEntity vet, DogBreed dogBreed) {
+        super(id, name, gender, description, image, price, owner, vet);
+        this.dogBreed = dogBreed;
+    }
 
 }
 

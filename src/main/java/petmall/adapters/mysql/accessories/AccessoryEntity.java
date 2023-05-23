@@ -8,9 +8,6 @@ import petmall.domain.accessory.Accessory;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * SuperClass for Accessories object
- */
 @Entity(name = "accessories")
 @Data
 @NoArgsConstructor

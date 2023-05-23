@@ -2,7 +2,6 @@ package petmall.api.user.dto;
 
 
 import lombok.Value;
-import petmall.adapters.mysql.user.UserEntity;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -12,7 +11,9 @@ import javax.validation.constraints.NotEmpty;
 public class UserRequestPayload {
     @NotEmpty
     String username;
+    @NotEmpty
     String firstName;
+    @NotEmpty
     String lastName;
     @NotEmpty
     String userType;
@@ -21,10 +22,11 @@ public class UserRequestPayload {
     String email;
     @NotEmpty
     String password;
-    @NotEmpty
+    String specialty;
+    String address;
+    String city;
+    String country;
 
-    public UserEntity asUser() {
-        return new UserEntity(username, firstName, lastName, email, password, null);
-    }
+
 
 }

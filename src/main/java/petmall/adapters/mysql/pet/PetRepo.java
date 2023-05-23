@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import petmall.domain.pet.PetRepository;
 
 @Repository
-public interface MysqlPetRepository extends PetRepository, JpaRepository<PetEntity, Long> {
+public interface PetRepo extends PetRepository, JpaRepository<PetEntity, Long> {
 }

@@ -2,7 +2,7 @@ package petmall.domain.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import petmall.adapters.mysql.user.UserEntity;
+import petmall.adapters.mysql.user.*;
 import petmall.api.user.dto.UserRequestPayload;
 import petmall.exception.UserNotFoundException;
 
@@ -17,18 +17,52 @@ public class UserService {
 
 
     public UserData createUser(UserRequestPayload payload) {
-        UserEntity user = payload.asUser();
+        UserEntity user;
         switch (payload.getUserType()){
-            case "admin":
+            default:
+                user = Admin.builder()
+                        .username(payload.getUsername())
+                        .firstName(payload.getFirstName())
+                        .lastName(payload.getLastName())
+                        .email(payload.getEmail())
+                        .password(payload.getPassword())
+                        .isAdmin(true)
+                        .build();
                 user.addRole("ROLE_ADMIN");
                 break;
             case "store_owner":
+                user = StoreOwner.builder()
+                        .username(payload.getUsername())
+                        .firstName(payload.getFirstName())
+                        .lastName(payload.getLastName())
+                        .email(payload.getEmail())
+                        .password(payload.getPassword())
+                        .isStoreOwner(true)
+                        .build();
                 user.addRole("ROLE_OWNER_ADMIN");
                 break;
             case "vet":
+                user = Vet.builder()
+                        .username(payload.getUsername())
+                        .firstName(payload.getFirstName())
+                        .lastName(payload.getLastName())
+                        .email(payload.getEmail())
+                        .password(payload.getPassword())
+                        .speciality(payload.getSpecialty())
+                        .build();
                 user.addRole("ROLE_VET_ADMIN");
                 break;
-            default:
+            case "user":
+                user = Customer.builder()
+                        .username(payload.getUsername())
+                        .firstName(payload.getFirstName())
+                        .lastName(payload.getLastName())
+                        .email(payload.getEmail())
+                        .password(payload.getPassword())
+                        .address(payload.getAddress())
+                        .city(payload.getCity())
+                        .country(payload.getCountry())
+                        .build();
                 user.addRole("ROLE_USER");
         }
         return userRepository.save(user).asUser();
