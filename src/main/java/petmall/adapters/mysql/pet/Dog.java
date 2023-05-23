@@ -4,13 +4,15 @@ import lombok.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.math.BigDecimal;
 
-@Data
-@Entity
-@Builder
+/*
+ * Dog - one of Pet object
+ */
 @EqualsAndHashCode(callSuper = true)
+@Entity
 @DiscriminatorValue("dog")
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Dog extends PetEntity {

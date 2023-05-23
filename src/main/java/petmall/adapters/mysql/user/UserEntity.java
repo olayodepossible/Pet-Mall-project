@@ -2,21 +2,14 @@ package petmall.adapters.mysql.user;
 
 import lombok.*;
 import petmall.adapters.mysql.pet.PetEntity;
+import petmall.domain.user.UserData;
 
 import javax.persistence.*;
 import java.util.Set;
 
-/*
- * UserService class for login panel, registration, privileges
- */
 
-/*
-* Dodac:
-* FB login, google login
-* przywileje [user, cashier, admin]
-*/
 
-@Entity
+@Entity(name = "users")
 @Getter
 @Setter
 @Builder
@@ -37,4 +30,7 @@ public class UserEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<PetEntity> pets;
 
+    public UserData asUser(){
+        return new UserData(id, username, firstName, lastName, email, pets);
+    }
 }

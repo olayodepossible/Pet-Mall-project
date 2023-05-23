@@ -5,7 +5,6 @@ import lombok.experimental.NonFinal;
 import petmall.adapters.mysql.pet.PetEntity;
 import petmall.adapters.mysql.user.UserEntity;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -21,8 +20,9 @@ public class CreatePetRequest {
     @NonFinal
     BigDecimal price;
     @NonFinal
-    private UserEntity owner;
-    private UserEntity vet;
+    UserEntity owner;
+    @NonFinal
+    UserEntity vet;
 
     public PetEntity asPet() {
         return new PetEntity(null, name, gender, description, image, price, owner, vet);

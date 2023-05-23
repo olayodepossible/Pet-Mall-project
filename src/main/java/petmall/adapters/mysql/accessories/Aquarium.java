@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.math.BigDecimal;
 
 /**
  * Aquarium - one of accessory item
@@ -19,4 +18,5 @@ import java.math.BigDecimal;
 public class Aquarium extends AccessoryEntity {
     private String dimensions;
     private int volume;
+
 }

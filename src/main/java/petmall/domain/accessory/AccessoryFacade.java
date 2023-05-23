@@ -5,14 +5,12 @@ import org.springframework.stereotype.Service;
 import petmall.adapters.mysql.accessories.AccessoryEntity;
 import petmall.api.accessory.dto.CreateAccessoryRequest;
 
+
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
- * Service class for Pet object
- * Initialized methods for Pet object with CRUD in PetController
- */
+
 @Service
 @RequiredArgsConstructor
 public class AccessoryFacade {

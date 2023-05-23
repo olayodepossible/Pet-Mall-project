@@ -18,4 +18,5 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Ball extends AccessoryEntity {
     private BigDecimal size;
+
 }
