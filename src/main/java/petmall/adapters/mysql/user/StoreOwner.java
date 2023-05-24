@@ -2,28 +2,40 @@ package petmall.adapters.mysql.user;
 
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 import petmall.adapters.mysql.Store;
 import petmall.adapters.mysql.pet.PetEntity;
+import petmall.api.user.dto.UserRequestPayload;
 import petmall.domain.Role;
+import petmall.domain.user.UserProcessor;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Entity(name = "store_owner")
+@Entity
+@Component("store_owner")
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("store_owner")
 @NoArgsConstructor
-public class StoreOwner extends UserEntity{
+public class StoreOwner extends UserEntity implements UserProcessor {
     private boolean isStoreOwner;
 
     @OneToMany(mappedBy = "owner")
     private Set <Store> stores;
+    @Transient
+    private static final String USER_TYPE = "store_owner";
 
-    @Builder
-    public StoreOwner(Long id, String username, String firstName, String lastName, String email, String password,
-                      Set<Role> roles, Set<PetEntity> pets, boolean isStoreOwner, Set<Store> stores) {
-        super(id, username, firstName, lastName, email, password, roles, pets);
-        this.isStoreOwner = isStoreOwner;
+    @Override
+    public String getUserType() {
+        return USER_TYPE;
     }
+
+    @Override
+    public UserEntity processUserTypeReq(UserRequestPayload req) {
+        this.isStoreOwner = true;
+        this.addRole("ROLE_OWNER_ADMIN");
+        return this;
+    }
+
 }

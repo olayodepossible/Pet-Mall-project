@@ -1,5 +1,6 @@
 package petmall.domain.pet;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Value;
 import lombok.experimental.NonFinal;
 import petmall.adapters.mysql.user.UserEntity;
@@ -17,7 +18,9 @@ public class Pet {
     @NonFinal
     BigDecimal price;
     @NonFinal
+    @JsonIgnore
     UserEntity owner;
     @NonFinal
+    @JsonIgnore
     UserEntity vet;
 }

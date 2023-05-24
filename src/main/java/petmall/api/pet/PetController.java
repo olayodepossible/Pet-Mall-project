@@ -2,14 +2,7 @@ package petmall.api.pet;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import petmall.api.pet.dto.CreatePetRequest;
 import petmall.domain.pet.Pet;
 import petmall.domain.pet.PetFacade;
@@ -22,33 +15,34 @@ import java.util.List;
  * Initialized methods for CRUD
  */
 @RestController
+@RequestMapping("/api/v1/pets")
 @RequiredArgsConstructor
 public class PetController {
     private final PetFacade petFacade;
 
-    @GetMapping("/pets/{id}")
-    public Pet getSinglePet(@PathVariable long id) {
+    @GetMapping("/pet_id")
+    public Pet getSinglePet(@RequestParam long id) {
         return petFacade.getPet(id);
     }
 
-    @GetMapping("/pets")
+    @GetMapping("/")
     public List<Pet> getAllPets() {
         return petFacade.getPets();
     }
 
-    @PostMapping("/pets/{owner_id}")
+    @PostMapping("/owner_id")
     @ResponseStatus(HttpStatus.CREATED)
-    public Pet addPet(@PathVariable long owner_id, @Valid @RequestBody CreatePetRequest pet) {
-        return petFacade.addPet(pet, owner_id);
+    public Pet addPet(@RequestParam long id, @Valid @RequestBody CreatePetRequest pet) {
+        return petFacade.addPet(pet, id);
     }
 
-//    @PutMapping("/pets/{id}")
+//    @PutMapping("/pet_id")
 //    @ResponseStatus(HttpStatus.CREATED)
-//    public Pet updatePet(@PathVariable("id") long id, @Valid @RequestBody CreatePetRequest pet) {
+//    public Pet updatePet(@RequestParam("id") long id, @Valid @RequestBody CreatePetRequest pet) {
 //        return petFacade.putPet(id, pet);
 //    }
 
-    @DeleteMapping("/pets/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePet(@PathVariable long id) {
         petFacade.deletePet(id);

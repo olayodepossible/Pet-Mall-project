@@ -1,25 +1,30 @@
 package petmall.adapters.mysql.pet;
 
 import lombok.*;
-import petmall.adapters.mysql.user.UserEntity;
+import org.springframework.stereotype.Component;
+import petmall.api.pet.dto.CreatePetRequest;
+import petmall.domain.pet.PetProcessor;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.math.BigDecimal;
+import javax.persistence.Transient;
 
 @Entity
-@Data
-@NoArgsConstructor
+@Component("ParrotPetProcessor")
 @DiscriminatorValue("parrot")
 @EqualsAndHashCode(callSuper = true)
-public class Parrot extends PetEntity {
+public class Parrot extends PetEntity implements PetProcessor {
     private ParrotBreed parrotBreed;
-
-    @Builder
-    public Parrot(Long id, String name, String gender, String description,
-               byte[] image, BigDecimal price, UserEntity owner, UserEntity vet, ParrotBreed parrotBreed) {
-        super(id, name, gender, description, image, price, owner, vet);
-        this.parrotBreed = parrotBreed;
+    @Transient
+    private static final String PET_TYPE = "parrot";
+    @Override
+    public String getPetType() {
+        return PET_TYPE;
+    }
+    @Override
+    public PetEntity processPetTypeReq(CreatePetRequest req) {
+        this.parrotBreed = ParrotBreed.valueOf(req.getBreed());
+        return this;
     }
 
 }

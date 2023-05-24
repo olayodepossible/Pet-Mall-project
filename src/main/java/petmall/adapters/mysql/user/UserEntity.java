@@ -29,6 +29,7 @@ public class UserEntity {
     private String lastName;
     private String email;
     private String password;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Role> roles;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)

@@ -2,28 +2,38 @@ package petmall.adapters.mysql.user;
 
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 import petmall.adapters.mysql.pet.PetEntity;
+import petmall.api.user.dto.UserRequestPayload;
 import petmall.domain.Role;
+import petmall.domain.user.UserProcessor;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
-@Data
+
 @Entity
+@Component("vet")
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("vet")
-@NoArgsConstructor
-public class Vet extends UserEntity{
+public class Vet extends UserEntity implements UserProcessor {
 
     private String speciality;
     @OneToMany(mappedBy = "vet")
     private List<PetEntity> petList;
+    @Transient
+    private static final String USER_TYPE = "vet";
 
-    @Builder
-    public Vet(Long id, String username, String firstName, String lastName,
-               String email, String password, Set<Role> roles, Set<PetEntity> pets, String speciality) {
-        super(id, username, firstName, lastName, email, password, roles, pets);
-        this.speciality = speciality;
+    @Override
+    public String getUserType() {
+        return USER_TYPE;
+    }
+
+    @Override
+    public UserEntity processUserTypeReq(UserRequestPayload req) {
+        this.speciality = req.getSpecialty();
+        this.addRole("ROLE_VET_ADMIN");
+        return this;
     }
 }

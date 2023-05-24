@@ -1,5 +1,6 @@
 package petmall.adapters.mysql.pet;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 
 import lombok.Data;
@@ -29,9 +30,11 @@ public class PetEntity {
     private String description;
     private byte[] image;
     private BigDecimal price;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity owner;
+    @JsonIgnore
     @ManyToOne
     private UserEntity vet;
 
