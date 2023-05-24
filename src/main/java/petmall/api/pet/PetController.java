@@ -36,17 +36,17 @@ public class PetController {
         return petFacade.getPets();
     }
 
-    @PostMapping("/pets")
+    @PostMapping("/pets/{owner_id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Pet addPet(@Valid @RequestBody CreatePetRequest pet) {
-        return petFacade.addPet(pet);
+    public Pet addPet(@PathVariable long owner_id, @Valid @RequestBody CreatePetRequest pet) {
+        return petFacade.addPet(pet, owner_id);
     }
 
-    @PutMapping("/pets/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Pet updatePet(@PathVariable("id") long id, @Valid @RequestBody CreatePetRequest pet) {
-        return petFacade.putPet(id, pet);
-    }
+//    @PutMapping("/pets/{id}")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public Pet updatePet(@PathVariable("id") long id, @Valid @RequestBody CreatePetRequest pet) {
+//        return petFacade.putPet(id, pet);
+//    }
 
     @DeleteMapping("/pets/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

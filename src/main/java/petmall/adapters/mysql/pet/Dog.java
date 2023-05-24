@@ -15,7 +15,8 @@ import java.math.BigDecimal;
 public class Dog extends PetEntity {
     private DogBreed dogBreed;
 
-    public Dog(Long id, String name, boolean gender, String description,
+    @Builder
+    public Dog(Long id, String name, String gender, String description,
                byte[] image, BigDecimal price, UserEntity owner, UserEntity vet, DogBreed dogBreed) {
         super(id, name, gender, description, image, price, owner, vet);
         this.dogBreed = dogBreed;

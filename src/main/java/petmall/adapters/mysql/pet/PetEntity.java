@@ -1,6 +1,7 @@
 package petmall.adapters.mysql.pet;
 
 import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import petmall.adapters.mysql.user.UserEntity;
@@ -14,9 +15,9 @@ import java.math.BigDecimal;
  */
 
 @Data
+@Entity(name = "pets")
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "pets")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="pet_type", discriminatorType = DiscriminatorType.STRING) // creating new column with @DiscriminatorValue in entities which extending pet
 public class PetEntity {
@@ -24,7 +25,7 @@ public class PetEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private boolean gender;
+    private String gender;
     private String description;
     private byte[] image;
     private BigDecimal price;

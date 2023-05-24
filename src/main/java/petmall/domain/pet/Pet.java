@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class Pet {
     Long id;
     String name;
-    boolean gender;
+    String gender;
     String description;
     byte[] image;
     @NonFinal
