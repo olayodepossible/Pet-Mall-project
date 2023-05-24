@@ -1,6 +1,7 @@
 package petmall.adapters.mysql.accessories;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import petmall.adapters.mysql.Store;
 import petmall.domain.accessory.Accessory;
@@ -23,6 +24,7 @@ public class AccessoryEntity {
     private byte[] image;
     private String description;
     private BigDecimal price;
+    @JsonIgnore
     @ManyToOne
     private Store store;
 

@@ -20,7 +20,6 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="user_type", discriminatorType = DiscriminatorType.STRING)
 public class UserEntity {
-    // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,9 +33,6 @@ public class UserEntity {
     private Set<Role> roles;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<PetEntity> pets;
-
-    public UserEntity( String username, String firstName, String lastName, String email, String password, Set<PetEntity> pets) {
-    }
 
     @JsonIgnore
     public void addRole(String roleName) {
