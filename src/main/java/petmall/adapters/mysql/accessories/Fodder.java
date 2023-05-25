@@ -2,23 +2,35 @@ package petmall.adapters.mysql.accessories;
 
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 import petmall.adapters.mysql.Store;
+import petmall.api.accessory.dto.CreateAccessoryRequest;
+import petmall.domain.accessory.AccessoryProcessor;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 
 @Entity
-@Data
-@NoArgsConstructor
+@Component("fodder")
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("fodder")
-public class Fodder extends AccessoryEntity {
-    private boolean fodderType;    // dry[F] or wet[T]
+public class Fodder extends AccessoryEntity implements AccessoryProcessor {
+    private String fodderType;    // dry[F] or wet[T]
 
-    public Fodder(long id, String name, String petType, byte[] image, String description,
-                  BigDecimal price, Store store, boolean fodderType) {
-        super(id, name, petType, image, description, price, store);
-        this.fodderType = fodderType;
+
+    @Transient
+    private static final String ACCESSORY_TYPE = "fodder";
+
+    @Override
+    public String getAccessoryType() {
+        return ACCESSORY_TYPE;
+    }
+
+    @Override
+    public AccessoryEntity processAccessoryTypeReq(CreateAccessoryRequest req) {
+        this.fodderType = req.getFodderType();
+        return this;
     }
 }

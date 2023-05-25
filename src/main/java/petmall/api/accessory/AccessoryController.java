@@ -15,6 +15,7 @@ import java.util.List;
  * Initialized methods for CRUD
  */
 @RestController
+@RequestMapping("api/v1/accessories/")
 @RequiredArgsConstructor
 public class AccessoryController {
     private final AccessoryFacade accessoryFacade;
@@ -29,9 +30,9 @@ public class AccessoryController {
         return accessoryFacade.getAccessories();
     }
 
-    @PostMapping("/accessories")
+    @PostMapping("/accessories/store")
     @ResponseStatus(HttpStatus.CREATED)
-    public Accessory addAccessory(@Valid @RequestBody CreateAccessoryRequest accessory) {
+    public Accessory addAccessory(@RequestParam long id, @Valid @RequestBody CreateAccessoryRequest accessory) {
         return accessoryFacade.addAccessory(accessory);
     }
 

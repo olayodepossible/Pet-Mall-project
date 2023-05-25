@@ -18,6 +18,13 @@ public class CreateAccessoryRequest {
     String petType;
     byte[] image;
     String description;
+    String dimensions;
+    @NonFinal
+    int volume;
+    String color;
+    @NonFinal
+    BigDecimal size;
+    String fodderType;
     @NotNull
     BigDecimal price;
     @JsonIgnore
