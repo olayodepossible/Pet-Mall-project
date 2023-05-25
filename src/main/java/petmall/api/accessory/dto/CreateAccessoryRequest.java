@@ -16,6 +16,8 @@ public class CreateAccessoryRequest {
     String name;
     @NotEmpty
     String petType;
+    @NotEmpty
+    String accessoryType;
     byte[] image;
     String description;
     String dimensions;

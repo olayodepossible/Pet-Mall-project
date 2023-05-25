@@ -4,6 +4,7 @@ package petmall.adapters.mysql.accessories;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import petmall.adapters.mysql.Store;
+import petmall.api.accessory.dto.AccessoryData;
 import petmall.domain.accessory.Accessory;
 
 import javax.persistence.*;
@@ -29,6 +30,10 @@ public class AccessoryEntity {
     private Store store;
 
     public Accessory asAccessory() {
-        return new Accessory( id, name, petType, image, description, price, store);
+        return new Accessory( id, name, petType, image, description, price);
+    }
+    public AccessoryData asAccessoryData() {
+        return new AccessoryData( id, name, petType, image, description, price,
+                store.getId(), store.getName(), store.getAddress(), store.getCity(), store.getCountry());
     }
 }
