@@ -14,7 +14,6 @@ import javax.persistence.Transient;
 @DiscriminatorValue("parrot")
 @EqualsAndHashCode(callSuper = true)
 public class Parrot extends PetEntity implements PetProcessor {
-    private ParrotBreed parrotBreed;
     @Transient
     private static final String PET_TYPE = "parrot";
     @Override
@@ -23,7 +22,7 @@ public class Parrot extends PetEntity implements PetProcessor {
     }
     @Override
     public PetEntity processPetTypeReq(CreatePetRequest req) {
-        this.parrotBreed = ParrotBreed.valueOf(req.getBreed());
+        this.setBreed(ParrotBreed.valueOf(req.getBreed()).toString());
         return this;
     }
 

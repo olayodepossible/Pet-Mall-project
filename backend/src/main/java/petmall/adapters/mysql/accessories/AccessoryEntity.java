@@ -22,7 +22,7 @@ public class AccessoryEntity {
     private Long id;
     private String name;
     private String petType;
-    private byte[] image;
+    private String imageUrl;
     private String description;
     private BigDecimal price;
     @JsonIgnore
@@ -30,10 +30,10 @@ public class AccessoryEntity {
     private Store store;
 
     public Accessory asAccessory() {
-        return new Accessory( id, name, petType, image, description, price);
+        return new Accessory( id, name, petType, imageUrl, description, price);
     }
     public AccessoryData asAccessoryData() {
-        return new AccessoryData( id, name, petType, image, description, price,
+        return new AccessoryData( id, name, petType, imageUrl, description, price,
                 store.getId(), store.getName(), store.getAddress(), store.getCity(), store.getCountry());
     }
 }

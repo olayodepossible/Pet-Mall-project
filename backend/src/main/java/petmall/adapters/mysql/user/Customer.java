@@ -12,11 +12,9 @@ import javax.persistence.*;
 @Entity
 @Component("client")
 @EqualsAndHashCode(callSuper = true)
-@DiscriminatorValue("pet_owner")
+@DiscriminatorValue("customer")
 public class Customer extends UserEntity implements UserProcessor {
-    private String address;
-    private String city;
-    private String country;
+
 
     @Transient
     private static final String USER_TYPE = "client";
@@ -28,9 +26,7 @@ public class Customer extends UserEntity implements UserProcessor {
 
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
-        this.address = req.getAddress();
-        this.city = req.getCity();
-        this.country = req.getCity();
+        this.setDesignation(Designation.CUSTOMER.name());
         this.setPrivilege("ROLE_USER");
         return this;
     }

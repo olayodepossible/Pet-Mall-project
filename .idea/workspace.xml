@@ -5,7 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="738fc5db-39a8-4569-a44d-2342a223cb83" name="Changes" comment="refactor user model">
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Designation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/bootstrap/DataBootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/bootstrap/DataBootstrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/accessories/AccessoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/accessories/AccessoryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Fish.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Fish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Parrot.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/Parrot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/PetEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/pet/PetEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/StoreOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/StoreOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Vet.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/adapters/mysql/user/Vet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/api/accessory/dto/AccessoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/api/accessory/dto/AccessoryData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/api/accessory/dto/CreateAccessoryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/api/accessory/dto/CreateAccessoryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/accessory/Accessory.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/accessory/Accessory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/accessory/AccessoryFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/accessory/AccessoryFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/pet/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/pet/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/user/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/petmall/domain/user/UserData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +40,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -49,8 +72,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "last_opened_file_path": "/Users/reliancehealth/Documents/test/JAVA/Pet-Mall-project",
+    "last_opened_file_path": "/Users/reliancehealth/Documents/test/JAVA/Pet-Mall-project/backend/src/main/resources",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -60,6 +84,9 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="petmall.domain.accessory" />
       <recent name="petmall.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="petmall.exception" />

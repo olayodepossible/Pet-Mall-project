@@ -13,6 +13,9 @@ public class UserData {
     String firstName;
     String lastName;
     String email;
+    String address;
+    String city;
+    String country;
     @JsonIgnore
     String privilege;
     Set<PetEntity> pets;

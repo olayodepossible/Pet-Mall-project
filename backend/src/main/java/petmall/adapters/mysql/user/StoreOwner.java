@@ -17,8 +17,6 @@ import java.util.Set;
 @DiscriminatorValue("store_owner")
 @NoArgsConstructor
 public class StoreOwner extends UserEntity implements UserProcessor {
-    private boolean isStoreOwner;
-
     @OneToMany(mappedBy = "owner")
     private Set <Store> stores;
     @Transient
@@ -31,8 +29,8 @@ public class StoreOwner extends UserEntity implements UserProcessor {
 
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
-        this.isStoreOwner = true;
-        this.setPrivilege("ROLE_OWNER_ADMIN");
+        this.setDesignation(Designation.STORE_OWNER.name());
+        this.setPrivilege("ROLE_STORE_ADMIN");
         return this;
     }
 

@@ -16,7 +16,6 @@ import java.math.BigDecimal;
 @DiscriminatorValue("dog")
 @EqualsAndHashCode(callSuper = true)
 public class Dog extends PetEntity implements PetProcessor {
-    private DogBreed dogBreed;
     @Transient
     private static final String PET_TYPE  = "dog";
 
@@ -27,7 +26,7 @@ public class Dog extends PetEntity implements PetProcessor {
 
     @Override
     public PetEntity processPetTypeReq(CreatePetRequest req) {
-        this.dogBreed = DogBreed.valueOf(req.getBreed());
+        this.setBreed(DogBreed.valueOf(req.getBreed()).toString());
         return this ;
     }
 

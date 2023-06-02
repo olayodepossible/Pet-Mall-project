@@ -26,12 +26,16 @@ public class UserEntity {
     private String lastName;
     private String email;
     private String password;
+    private String address;
+    private String city;
+    private String country;
     private String privilege;
+    private String designation;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<PetEntity> pets;
 
 
     public UserData asUser(){
-        return new UserData(id, username, firstName, lastName, email, privilege, pets);
+        return new UserData(id, username, firstName, lastName, email,address, city, country, privilege, pets);
     }
 }

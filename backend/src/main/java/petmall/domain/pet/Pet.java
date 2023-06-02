@@ -14,7 +14,8 @@ public class Pet {
     String name;
     String gender;
     String description;
-   String image;
+    String imageUrl;
+    String breed;
     @NonFinal
     BigDecimal price;
     @NonFinal

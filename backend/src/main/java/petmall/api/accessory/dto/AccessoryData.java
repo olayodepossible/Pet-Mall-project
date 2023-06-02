@@ -9,7 +9,7 @@ public class AccessoryData {
     Long id;
     String name;
     String petType;
-    byte[] image;
+    String imageUrl;
     String description;
     BigDecimal price;
     Long storeId;

@@ -30,6 +30,7 @@ public class PetEntity {
     private String description;
     private String imageUrl;
     private BigDecimal price;
+    private String breed;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -40,6 +41,6 @@ public class PetEntity {
 
 
     public Pet asPet() {
-        return new Pet( id, name, gender, description, imageUrl, price, owner, vet);
+        return new Pet( id, name, gender, description, imageUrl, breed, price, owner, vet);
     }
 }

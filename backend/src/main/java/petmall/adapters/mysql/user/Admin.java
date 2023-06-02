@@ -14,7 +14,6 @@ import javax.persistence.Transient;
 @DiscriminatorValue("admin")
 @EqualsAndHashCode(callSuper = true)
 public class Admin extends UserEntity implements UserProcessor {
-    private boolean isAdmin;
     @Transient
     private static final String USER_TYPE = "admin";
 
@@ -25,7 +24,7 @@ public class Admin extends UserEntity implements UserProcessor {
 
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
-        this.isAdmin = true;
+        this.setDesignation(Designation.ADMIN.name());
         this.setPrivilege("ROLE_ADMIN");
         return this;
     }

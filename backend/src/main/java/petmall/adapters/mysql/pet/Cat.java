@@ -32,7 +32,7 @@ public class Cat extends PetEntity implements PetProcessor {
 
     @Override
     public PetEntity processPetTypeReq(CreatePetRequest req) {
-        this.catBreed = CatBreed.valueOf(req.getBreed());
+        this.setBreed(CatBreed.valueOf(req.getBreed()).toString());
         return this ;
     }
 }

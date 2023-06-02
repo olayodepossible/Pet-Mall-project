@@ -1,4 +1,7 @@
 spring:
+  sql:
+    init:
+      mode: always # for sql script
   datasource:
     url: jdbc:mysql://localhost:3306/petmall?allowPublicKeyRetrieval=true&useSSL=true&serverTimezone=UTC
     username: root
@@ -6,6 +9,7 @@ spring:
 
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
   jpa:
+    defer-datasource-initialization: true # to use JPA and sql script
     hibernate:
       # Hibernate ddl auto (create, create-drop, validate, update)
       ddl-auto: create
@@ -13,6 +17,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
-  mvc:
-    pathmatch:
-      matching-strategy: ant-path-matcher
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant-path-matcher

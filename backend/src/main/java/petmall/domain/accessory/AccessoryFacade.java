@@ -47,7 +47,7 @@ public class AccessoryFacade {
         AccessoryEntity accessoryEntity = accessoryFactory.getAccessoryProcessor(accessory.getAccessoryType()).processAccessoryTypeReq(accessory);
         accessoryEntity.setName(accessory.getName());
         accessoryEntity.setPrice(accessory.getPrice());
-        accessoryEntity.setImage(accessory.getImage());
+        accessoryEntity.setImageUrl(accessory.getImageUrl());
         accessoryEntity.setPetType(accessory.getPetType());
         accessoryEntity.setDescription(accessory.getDescription());
         accessoryEntity.setStore(store);

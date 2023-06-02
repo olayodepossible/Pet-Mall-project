@@ -30,6 +30,7 @@ public class Vet extends UserEntity implements UserProcessor {
 
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
+        this.setDesignation(Designation.VET.name());
         this.speciality = req.getSpecialty();
         this.setPrivilege("ROLE_VET_ADMIN");
         return this;

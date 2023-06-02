@@ -18,7 +18,7 @@ public class CreateAccessoryRequest {
     String petType;
     @NotEmpty
     String accessoryType;
-    byte[] image;
+    String imageUrl;
     String description;
     String dimensions;
     @NonFinal
@@ -34,10 +34,10 @@ public class CreateAccessoryRequest {
     Store store;
 
     public AccessoryEntity asAccessory() {
-        return new AccessoryEntity(null, name, petType, image, description, price, store);
+        return new AccessoryEntity(null, name, petType, imageUrl, description, price, store);
     }
 
     public AccessoryEntity asAccessory (Long id) {
-        return new AccessoryEntity(id, name, petType, image, description, price, store);
+        return new AccessoryEntity(id, name, petType, imageUrl, description, price, store);
     }
 }
