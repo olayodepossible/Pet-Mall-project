@@ -1,19 +1,13 @@
 package petmall.adapters.mysql.user;
 
-import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-import petmall.adapters.mysql.pet.PetEntity;
 import petmall.api.user.dto.UserRequestPayload;
-import petmall.domain.Role;
 import petmall.domain.user.UserProcessor;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
-import java.util.Set;
 
 @Entity
 @Component("admin")
@@ -32,7 +26,7 @@ public class Admin extends UserEntity implements UserProcessor {
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
         this.isAdmin = true;
-        this.addRole("ROLE_ADMIN");
+        this.setPrivilege("ROLE_ADMIN");
         return this;
     }
 }

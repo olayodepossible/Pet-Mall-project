@@ -39,7 +39,7 @@ public class PetFacade {
         UserEntity user = userRepository.findById(id).orElseThrow( () -> new UserNotFoundException("Pet Owner not found"));
         PetEntity petEntity = petFactory.getPetType(req.getPetType()).processPetTypeReq(req);
         petEntity.setName(req.getName());
-        petEntity.setImage(req.getImage());
+        petEntity.setImageUrl(req.getImageUrl());
         petEntity.setGender(req.getGender());
         petEntity.setOwner(user);
         petEntity.setPrice(req.getPrice());

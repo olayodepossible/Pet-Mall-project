@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/petMall?allowPublicKeyRetrieval=true&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/petmall?allowPublicKeyRetrieval=true&useSSL=true&serverTimezone=UTC
     username: root
     password: ${password}
 

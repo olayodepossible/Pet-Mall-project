@@ -5,12 +5,10 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 import petmall.adapters.mysql.pet.PetEntity;
 import petmall.api.user.dto.UserRequestPayload;
-import petmall.domain.Role;
 import petmall.domain.user.UserProcessor;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 
 @Entity
@@ -33,7 +31,7 @@ public class Vet extends UserEntity implements UserProcessor {
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
         this.speciality = req.getSpecialty();
-        this.addRole("ROLE_VET_ADMIN");
+        this.setPrivilege("ROLE_VET_ADMIN");
         return this;
     }
 }

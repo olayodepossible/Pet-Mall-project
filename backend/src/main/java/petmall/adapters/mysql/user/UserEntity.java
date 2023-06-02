@@ -3,11 +3,9 @@ package petmall.adapters.mysql.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import petmall.adapters.mysql.pet.PetEntity;
-import petmall.domain.Role;
 import petmall.domain.user.UserData;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -28,24 +26,12 @@ public class UserEntity {
     private String lastName;
     private String email;
     private String password;
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Role> roles;
+    private String privilege;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<PetEntity> pets;
 
-    @JsonIgnore
-    public void addRole(String roleName) {
-        if(this.roles == null) {
-            this.roles = new HashSet<>();
-        }
-        Role role = new Role();
-        role.setName(roleName);
-        role.setUser(this);
-        this.roles.add(role);
-    }
 
     public UserData asUser(){
-        return new UserData(id, username, firstName, lastName, email, roles, pets);
+        return new UserData(id, username, firstName, lastName, email, privilege, pets);
     }
 }

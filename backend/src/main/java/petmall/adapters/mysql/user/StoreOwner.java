@@ -4,9 +4,7 @@ package petmall.adapters.mysql.user;
 import lombok.*;
 import org.springframework.stereotype.Component;
 import petmall.adapters.mysql.Store;
-import petmall.adapters.mysql.pet.PetEntity;
 import petmall.api.user.dto.UserRequestPayload;
-import petmall.domain.Role;
 import petmall.domain.user.UserProcessor;
 
 import javax.persistence.*;
@@ -34,7 +32,7 @@ public class StoreOwner extends UserEntity implements UserProcessor {
     @Override
     public UserEntity processUserTypeReq(UserRequestPayload req) {
         this.isStoreOwner = true;
-        this.addRole("ROLE_OWNER_ADMIN");
+        this.setPrivilege("ROLE_OWNER_ADMIN");
         return this;
     }
 

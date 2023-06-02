@@ -13,7 +13,7 @@ public class CreatePetRequest {
     String name;
     String gender;
     String description;
-    byte[] image;
+    String imageUrl;
     @NotNull
     @NonFinal
     BigDecimal price;

@@ -3,13 +3,10 @@ package petmall.adapters.mysql.user;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
-import petmall.adapters.mysql.pet.PetEntity;
 import petmall.api.user.dto.UserRequestPayload;
-import petmall.domain.Role;
 import petmall.domain.user.UserProcessor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 
 @Entity
@@ -34,7 +31,7 @@ public class Customer extends UserEntity implements UserProcessor {
         this.address = req.getAddress();
         this.city = req.getCity();
         this.country = req.getCity();
-        this.addRole("ROLE_USER");
+        this.setPrivilege("ROLE_USER");
         return this;
     }
 
