@@ -3,6 +3,7 @@ package petmall.adapters.bootstrap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import petmall.api.pet.dto.CreatePetRequest;
 import petmall.api.store.StoreService;
 import petmall.api.user.dto.UserRequestPayload;
 import petmall.domain.accessory.AccessoryFacade;
@@ -45,10 +46,26 @@ public class DataBootstrap implements CommandLineRunner {
         UserRequestPayload admin = new UserRequestPayload("Pete204", "Pete", "Klark", "admin", "pete@gmail.com", "12345", null, "52, MacLaure Street", "LA", "USA");
 
             //________________ Pet - Dog ______________//
+        CreatePetRequest dog1 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "HUSKY");
+        CreatePetRequest dog2 = new CreatePetRequest("Brace", "Female", "Robbot look",null, 0, "dog", "BORDER_COLLIE");
+        CreatePetRequest dog3 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "POODLE");
+        CreatePetRequest dog4 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "BULLDOG");
+        CreatePetRequest dog5 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "BEAGLE");
+        CreatePetRequest dog6 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "COCKER_SPANIEL");
+        CreatePetRequest dog7 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "GERMAN_SHEPHERD");
+        CreatePetRequest dog8 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "PEKINGESE");
+        CreatePetRequest dog9 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "PIT_BULL");
+        CreatePetRequest dog10 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "PIT_BULL");
+        CreatePetRequest dog11 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "GERMAN_SHEPHERD");
+        CreatePetRequest dog12 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "BULLDOG");
+
+
 
             //________________ Pet - Cat ______________//
+        CreatePetRequest cat1 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "PERSIAN");
 
             //________________ Pet - Parrot ______________//
+        CreatePetRequest bird1 = new CreatePetRequest("Lace", "Male", "Nice look",null, 0, "dog", "PERSIAN");
 
 
 

@@ -28,7 +28,7 @@ public class PetEntity {
     private String name;
     private String gender;
     private String description;
-    private byte[] image;
+    private String imageUrl;
     private BigDecimal price;
     @JsonIgnore
     @ManyToOne
@@ -40,6 +40,6 @@ public class PetEntity {
 
 
     public Pet asPet() {
-        return new Pet( id, name, gender, description, image, price, owner, vet);
+        return new Pet( id, name, gender, description, imageUrl, price, owner, vet);
     }
 }
