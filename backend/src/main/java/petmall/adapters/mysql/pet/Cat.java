@@ -1,19 +1,14 @@
 package petmall.adapters.mysql.pet;
 
-import lombok.Builder;
-import lombok.Data;
+
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-import petmall.adapters.mysql.user.UserEntity;
 import petmall.api.pet.dto.CreatePetRequest;
-import petmall.domain.pet.Pet;
 import petmall.domain.pet.PetProcessor;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
-import java.math.BigDecimal;
 
 
 @Entity
@@ -21,7 +16,6 @@ import java.math.BigDecimal;
 @Component("CatPetProcessor")
 @EqualsAndHashCode(callSuper = true)
 public class Cat extends PetEntity implements PetProcessor {
-    private CatBreed catBreed;
     @Transient
     private static final String PET_TYPE  = "cat";
 
