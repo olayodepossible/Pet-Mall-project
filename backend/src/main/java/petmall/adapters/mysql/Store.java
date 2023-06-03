@@ -9,7 +9,7 @@ import petmall.api.store.dto.StoreDto;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "stores")
 @Getter
 @Setter
 @Builder

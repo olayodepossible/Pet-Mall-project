@@ -93,11 +93,11 @@ INSERT IGNORE INTO pets (pet_type, id, name, gender, description, image_url, pri
 VALUES ("cat", 21, "Blurry", "Male", "Get acquaintance", "https://static.toiimg.com/thumb/resizemode-4,width-1200,height-900,msid-72295960/72295960.jpg", 150, "SPHYNX", 8, null);
 
 -- STORE --
-INSERT IGNORE INTO users ( id, name, address, city, country, owner_id )
+INSERT IGNORE INTO stores ( id, name, address, city, country, owner_id )
 VALUES ( 1, "McLaurel Pet Store", "22, MacLaure Street", "LA", "USA", 7);
 
-INSERT IGNORE INTO users ( id, name, address, city, country, owner_id )
-VALUES ( 1, "Pete Pet Store", "52, MacLaure Street", "LA", "USA", 8);
+INSERT IGNORE INTO stores ( id, name, address, city, country, owner_id )
+VALUES ( 2, "Pete Pet Store", "52, MacLaure Street", "LA", "USA", 8);
 
 
 
