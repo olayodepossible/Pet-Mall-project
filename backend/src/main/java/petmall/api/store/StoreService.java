@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import petmall.adapters.mysql.Store;
 import petmall.adapters.mysql.user.UserEntity;
-import petmall.adapters.mysql.user.Vet;
 import petmall.api.store.dto.ServiceReceipt;
 import petmall.api.store.dto.StoreDto;
 import petmall.domain.pet.Pet;
@@ -21,7 +20,7 @@ import java.util.stream.Collectors;
 public class StoreService {
     private final StoreRepository storeRepository;
     private final UserService userService;
-    private PetFacade petService;
+    private final PetFacade petService;
 
     private static final String STORE_NOT_FOUND = "Not found Store with id = ";
 
@@ -58,7 +57,6 @@ public class StoreService {
             throw new DataNotFoundException(STORE_NOT_FOUND + storeId);
         }
         return storeRepository.findVetsByStoreId(storeId);
-//        return userService.getVetByStoreId(storeId);
     }
 
     public Store addVet(long storeId, long vetId) {
@@ -82,7 +80,7 @@ public class StoreService {
         storeRepository.save(store);
     }
 
-    public ServiceReceipt vetConsultation( Long petId, Long vetId) {
+    public ServiceReceipt vetConsultation( Long vetId, Long petId) {
         UserEntity vet = userService.getUser(vetId);
         Pet pet = petService.updatePetWithVet(vet, petId);
         return ServiceReceipt.builder()
@@ -90,6 +88,7 @@ public class StoreService {
                 .ownerLastName(pet.getOwnerLastName())
                 .ownerEmail(pet.getOwnerEmail())
                 .ownerAddress(pet.getOwnerAddress())
+                .serviceType("Veterinary Service")
                 .serviceName(pet.getName())
                 .petGender(pet.getGender())
                 .petAge(pet.getAge())

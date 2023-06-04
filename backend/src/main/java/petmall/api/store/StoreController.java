@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import petmall.adapters.mysql.Store;
 import petmall.adapters.mysql.user.UserEntity;
-import petmall.adapters.mysql.user.Vet;
 import petmall.api.store.dto.ServiceReceipt;
 import petmall.api.store.dto.StoreDto;
 
@@ -59,7 +58,7 @@ public class StoreController {
     }
 
     @PostMapping("/vet/{vetId}/consultation/{petId}")
-    public ResponseEntity<ServiceReceipt> consultVet(@PathVariable Long petId, @PathVariable Long vetId) {
-        return new ResponseEntity<>(storeService.vetConsultation(petId,vetId), HttpStatus.OK);
+    public ResponseEntity<ServiceReceipt> consultVet(@PathVariable Long vetId, @PathVariable Long petId) {
+        return new ResponseEntity<>(storeService.vetConsultation(vetId, petId), HttpStatus.OK);
     }
 }

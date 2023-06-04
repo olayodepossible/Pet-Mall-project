@@ -28,7 +28,7 @@ public class AccessoryFacade {
 
     // Methods for Controller from Repository
     public Accessory getAccessory(long id) {
-        AccessoryEntity data = accessoryRepository.findById(id).orElseThrow(() -> new AccessoryNotFoundException(String.format("Accessory with %d not found", id)));
+        AccessoryEntity data = accessoryRepository.findById(id).orElseThrow(() -> new DataNotFoundException(String.format("Accessory with %d not found", id)));
         return data.asAccessory();
     }
 
