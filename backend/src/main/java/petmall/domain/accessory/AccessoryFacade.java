@@ -8,7 +8,6 @@ import petmall.adapters.mysql.accessories.AccessoryEntity;
 import petmall.api.accessory.dto.AccessoryData;
 import petmall.api.accessory.dto.CreateAccessoryRequest;
 import petmall.api.store.StoreService;
-import petmall.exception.AccessoryNotFoundException;
 import petmall.exception.DataNotFoundException;
 
 
