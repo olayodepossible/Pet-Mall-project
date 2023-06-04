@@ -1,14 +1,17 @@
 package petmall.adapters.mysql.user;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.stereotype.Component;
+import petmall.adapters.mysql.Store;
 import petmall.adapters.mysql.pet.PetEntity;
 import petmall.api.user.dto.UserRequestPayload;
 import petmall.domain.user.UserProcessor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -19,7 +22,16 @@ public class Vet extends UserEntity implements UserProcessor {
 
     private String speciality;
     @OneToMany(mappedBy = "vet")
-    private List<PetEntity> petList;
+    private Set<PetEntity> petList;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+        cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+        },
+        mappedBy = "tags")
+    @JsonIgnore
+    private Set<Store> storeList = new HashSet<>();
     @Transient
     private static final String USER_TYPE = "vet";
 

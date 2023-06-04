@@ -8,6 +8,7 @@ import petmall.domain.pet.Pet;
 import petmall.domain.pet.PetFacade;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 /*
@@ -25,9 +26,14 @@ public class PetController {
         return petFacade.getPet(id);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Pet> getAllPets() {
         return petFacade.getPets();
+    }
+
+    @GetMapping( "/store")
+    public Collection<Pet> getAllStorePets() {
+        return petFacade.getStorePets();
     }
 
     @PostMapping("/owner_id")

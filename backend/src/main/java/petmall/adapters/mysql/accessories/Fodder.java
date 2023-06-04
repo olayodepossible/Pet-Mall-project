@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("fodder")
 public class Fodder extends AccessoryEntity implements AccessoryProcessor {
-    private String fodderType;    // dry[F] or wet[T]
+        // dry[F] or wet[T]
 
 
     @Transient
@@ -30,7 +30,6 @@ public class Fodder extends AccessoryEntity implements AccessoryProcessor {
 
     @Override
     public AccessoryEntity processAccessoryTypeReq(CreateAccessoryRequest req) {
-        this.fodderType = req.getFodderType();
         return this;
     }
 }

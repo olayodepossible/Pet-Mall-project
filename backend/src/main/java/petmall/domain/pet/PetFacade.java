@@ -10,6 +10,7 @@ import petmall.exception.UserNotFoundException;
 
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,9 @@ public class PetFacade {
 
     public List<Pet> getPets() {
         return petRepository.findAll().stream().map(PetEntity::asPet).collect(Collectors.toList());
+    }
+    public Collection<Pet> getStorePets() {
+        return petRepository.findPetOwnByStore().stream().map(PetEntity::asPet).collect(Collectors.toList());
     }
 
     @Transactional
