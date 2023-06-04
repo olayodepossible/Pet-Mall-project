@@ -43,7 +43,7 @@ public class StoreController {
 
 
     @GetMapping("/{storeId}/vets")
-    public ResponseEntity<List<Vet>> getAllVetsByStoreId(@PathVariable(value = "storeId") Long storeId) {
+    public ResponseEntity<List<UserEntity>> getAllVetsByStoreId(@PathVariable(value = "storeId") Long storeId) {
         return new ResponseEntity<>(storeService.getVetsByStoreId(storeId), HttpStatus.OK);
     }
     @PostMapping("/{storeId}/vet/{vetId}")
@@ -58,11 +58,8 @@ public class StoreController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/{storeId}/vet/{vetId}/consultation/{userId}")
-    public ResponseEntity<ServiceReceipt> consultVet(@PathVariable Long storeId,
-                                                     @PathVariable Long vetId,
-                                                     @PathVariable Long userId) {
-
-        return new ResponseEntity<>(storeService.vetConsultation(storeId,vetId, userId), HttpStatus.OK);
+    @PostMapping("/vet/{vetId}/consultation/{petId}")
+    public ResponseEntity<ServiceReceipt> consultVet(@PathVariable Long petId, @PathVariable Long vetId) {
+        return new ResponseEntity<>(storeService.vetConsultation(petId,vetId), HttpStatus.OK);
     }
 }

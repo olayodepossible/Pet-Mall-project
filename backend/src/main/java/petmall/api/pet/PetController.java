@@ -3,6 +3,7 @@ package petmall.api.pet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import petmall.adapters.mysql.pet.PetEntity;
 import petmall.api.pet.dto.CreatePetRequest;
 import petmall.domain.pet.Pet;
 import petmall.domain.pet.PetFacade;
@@ -41,6 +42,12 @@ public class PetController {
     @ResponseStatus(HttpStatus.CREATED)
     public Pet editPet(@RequestParam long id, @Valid @RequestBody CreatePetRequest pet) {
         return petFacade.updatePet(id, pet);
+    }
+
+    @GetMapping("/user/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PetEntity> customerPetList(@RequestParam long id) {
+        return petFacade.getCustomerPet(id);
     }
 
     @DeleteMapping("/{id}")

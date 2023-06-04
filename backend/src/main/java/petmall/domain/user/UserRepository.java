@@ -4,6 +4,7 @@ package petmall.domain.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import petmall.adapters.mysql.pet.PetEntity;
 import petmall.adapters.mysql.user.UserEntity;
 import petmall.adapters.mysql.user.Vet;
 
@@ -19,8 +20,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     void deleteById(long id);
 
-    @Query("SELECT c FROM users c JOIN c.stores p WHERE p.id = :storeId")
-    List<Vet> findVetsByStoreId(Long storeId);
 
 
 }

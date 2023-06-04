@@ -39,7 +39,4 @@ public class UserService {
                  .orElseThrow( () -> new DataNotFoundException(String.format("User with Id: %d not found", id )));
     }
 
-    public List<Vet> getVetByStoreId(long id){
-        return userRepository.findVetsByStoreId(id);
-    }
 }

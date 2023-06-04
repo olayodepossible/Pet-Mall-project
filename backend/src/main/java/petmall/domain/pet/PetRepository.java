@@ -16,5 +16,7 @@ public interface PetRepository extends JpaRepository<PetEntity, Long> {
     @Query("SELECT u FROM pets u WHERE u.price > 0")
     Collection<PetEntity> findPetOwnByStore();
     List<PetEntity> findAll();
+    @Query("SELECT c FROM pets c WHERE c.owner = :id")
+    List<PetEntity> getPetsByOwnerId(long id);
     void deleteById(long id);
 }

@@ -53,12 +53,12 @@ public class StoreService {
          storeRepository.deleteById(id);
     }
 
-    public List<Vet> getVetsByStoreId(Long storeId) {
+    public List<UserEntity> getVetsByStoreId(Long storeId) {
         if (!storeRepository.existsById(storeId)) {
             throw new DataNotFoundException(STORE_NOT_FOUND + storeId);
         }
-//        return storeRepository.findVetsById(storeId);
-        return userService.getVetByStoreId(storeId);
+        return storeRepository.findVetsByStoreId(storeId);
+//        return userService.getVetByStoreId(storeId);
     }
 
     public Store addVet(long storeId, long vetId) {
@@ -82,7 +82,7 @@ public class StoreService {
         storeRepository.save(store);
     }
 
-    public ServiceReceipt vetConsultation( Long petId, Long vetId, Long userId) {
+    public ServiceReceipt vetConsultation( Long petId, Long vetId) {
         UserEntity vet = userService.getUser(vetId);
         Pet pet = petService.updatePetWithVet(vet, petId);
         return ServiceReceipt.builder()

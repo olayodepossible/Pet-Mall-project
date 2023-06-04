@@ -61,6 +61,10 @@ public class PetFacade {
         return petRepository.save(pet).asPetWithOwner();
     }
 
+    public List<PetEntity> getCustomerPet (long id){
+        return petRepository.getPetsByOwnerId(id);
+    }
+
     @Transactional
     public void deletePet(long id) {
         petRepository.deleteById(id);
