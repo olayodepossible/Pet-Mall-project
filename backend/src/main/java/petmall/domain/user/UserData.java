@@ -18,5 +18,6 @@ public class UserData {
     String country;
     @JsonIgnore
     String privilege;
+    @JsonIgnore
     Set<PetEntity> pets;
 }

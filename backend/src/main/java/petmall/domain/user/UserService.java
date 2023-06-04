@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import petmall.adapters.mysql.user.*;
 import petmall.api.user.dto.UserRequestPayload;
-import petmall.exception.UserNotFoundException;
+import petmall.exception.DataNotFoundException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +24,9 @@ public class UserService {
         user.setLastName(payload.getLastName());
         user.setEmail(payload.getEmail());
         user.setPassword(payload.getPassword());
+        user.setAddress(payload.getAddress());
+        user.setCity(payload.getCity());
+        user.setCountry(payload.getCountry());
         return userRepository.save(user).asUser();
     }
 
@@ -33,6 +36,10 @@ public class UserService {
 
     public UserEntity getUser(long id) {
          return  userRepository.findById(id)
-                 .orElseThrow( () -> new UserNotFoundException(String.format("User with Id: %d not found", id )));
+                 .orElseThrow( () -> new DataNotFoundException(String.format("User with Id: %d not found", id )));
+    }
+
+    public List<Vet> getVetByStoreId(long id){
+        return userRepository.findVetsByStoreId(id);
     }
 }

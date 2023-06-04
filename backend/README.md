@@ -1,8 +1,8 @@
 # Online Pet Store
 ## About
 Online pet store is a Rest Api project with basic CRUD (create, read, update, delete). The design pattern DDD has been used.\
-For this project i used separate docker containers. One of them is for the MySql and the other is for the Project. \
-Also i create docker network to connect with each other.
+For this project I used separate docker containers. One of them is for the MySql and the other is for the Project. \
+Also I create docker network to connect with each other.
 
 ## Technologies
 - Java 11,

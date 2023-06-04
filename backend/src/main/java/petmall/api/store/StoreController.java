@@ -5,6 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import petmall.adapters.mysql.Store;
+import petmall.adapters.mysql.user.UserEntity;
+import petmall.adapters.mysql.user.Vet;
+import petmall.api.store.dto.ServiceReceipt;
 import petmall.api.store.dto.StoreDto;
 
 import java.util.Collection;
@@ -16,25 +19,50 @@ import java.util.List;
 public class StoreController {
     private final StoreService storeService;
 
-    @PostMapping("/owner_id")
-    public ResponseEntity<StoreDto> createStore(@RequestParam long id, @RequestBody StoreDto req){
-        return new ResponseEntity<>(storeService.registerStore(req, id), HttpStatus.CREATED);
+    @PostMapping("/{ownerId}")
+    public ResponseEntity<StoreDto> createStore(@RequestParam long ownerId, @RequestBody StoreDto req){
+        return new ResponseEntity<>(storeService.registerStore(req, ownerId), HttpStatus.CREATED);
     }
     @GetMapping()
     public ResponseEntity<List<StoreDto>> getStores(){
         return new ResponseEntity<>(storeService.getAllStore(), HttpStatus.OK);
     }
-    @GetMapping("/owner_id")
-    public ResponseEntity<Collection<Store>> getStore(@RequestParam long id){
-        return new ResponseEntity<>(storeService.getStoresByOwner(id), HttpStatus.OK);
+    @GetMapping("/{ownerId}")
+    public ResponseEntity<Collection<Store>> getStore(@RequestParam long ownerId){
+        return new ResponseEntity<>(storeService.getStoresByOwner(ownerId), HttpStatus.OK);
     }
-    @PutMapping("/owner_id/store")
-    public ResponseEntity<StoreDto> updateStore(@RequestParam long id, @RequestParam long storeId, @RequestBody StoreDto req){
-        return new ResponseEntity<>(storeService.updateStoresByOwner(id, storeId, req), HttpStatus.OK);
+    @PutMapping("/owner/{ownerId}/store")
+    public ResponseEntity<StoreDto> updateStore(@RequestParam long ownerId, @RequestParam long storeId, @RequestBody StoreDto req){
+        return new ResponseEntity<>(storeService.updateStoresByOwner(ownerId, storeId, req), HttpStatus.OK);
     }
     @DeleteMapping("/store")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteStore(@RequestParam long id){
         storeService.deleteStore(id);
+    }
+
+
+    @GetMapping("/{storeId}/vets")
+    public ResponseEntity<List<Vet>> getAllVetsByStoreId(@PathVariable(value = "storeId") Long storeId) {
+        return new ResponseEntity<>(storeService.getVetsByStoreId(storeId), HttpStatus.OK);
+    }
+    @PostMapping("/{storeId}/vet/{vetId}")
+    public ResponseEntity<HttpStatus> addVetToStore(@PathVariable() Long storeId, @PathVariable() Long vetId ) {
+        storeService.addVet(storeId, vetId);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{storeId}/vet/{vetId}")
+    public ResponseEntity<HttpStatus> deleteVetFromStore(@PathVariable(value = "storeId") Long storeId, @PathVariable(value = "vetId") Long vetId) {
+        storeService.deleteVet(storeId, vetId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("/{storeId}/vet/{vetId}/consultation/{userId}")
+    public ResponseEntity<ServiceReceipt> consultVet(@PathVariable Long storeId,
+                                                     @PathVariable Long vetId,
+                                                     @PathVariable Long userId) {
+
+        return new ResponseEntity<>(storeService.vetConsultation(storeId,vetId, userId), HttpStatus.OK);
     }
 }

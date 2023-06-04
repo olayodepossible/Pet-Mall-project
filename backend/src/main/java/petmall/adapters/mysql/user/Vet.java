@@ -24,14 +24,9 @@ public class Vet extends UserEntity implements UserProcessor {
     @OneToMany(mappedBy = "vet")
     private Set<PetEntity> petList;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-        cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE
-        },
-        mappedBy = "tags")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH}, mappedBy = "vetList")
     @JsonIgnore
-    private Set<Store> storeList = new HashSet<>();
+    private Set<Store> storeList;
     @Transient
     private static final String USER_TYPE = "vet";
 

@@ -21,14 +21,9 @@ import java.util.List;
 public class PetController {
     private final PetFacade petFacade;
 
-    @GetMapping("/pet_id")
+    @GetMapping("/{id}")
     public Pet getSinglePet(@RequestParam long id) {
         return petFacade.getPet(id);
-    }
-
-    @GetMapping()
-    public List<Pet> getAllPets() {
-        return petFacade.getPets();
     }
 
     @GetMapping( "/store")
@@ -36,17 +31,17 @@ public class PetController {
         return petFacade.getStorePets();
     }
 
-    @PostMapping("/owner_id")
+    @PostMapping("/owner/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Pet addPet(@RequestParam long id, @Valid @RequestBody CreatePetRequest pet) {
         return petFacade.addPet(pet, id);
     }
 
-//    @PutMapping("/pet_id")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Pet updatePet(@RequestParam("id") long id, @Valid @RequestBody CreatePetRequest pet) {
-//        return petFacade.putPet(id, pet);
-//    }
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Pet editPet(@RequestParam long id, @Valid @RequestBody CreatePetRequest pet) {
+        return petFacade.updatePet(id, pet);
+    }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -33,28 +33,25 @@ public class Store {
     private List<AccessoryEntity> accessoryList;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-    @JoinTable(name = "tutorial_tags",
-            joinColumns = { @JoinColumn(name = "tutorial_id") },
-            inverseJoinColumns = { @JoinColumn(name = "tag_id") })
-    private Set<Vet> vetList= new HashSet<>();
+        cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE, CascadeType.DETACH,
+        })
+    @JoinTable(name = "store_vets",
+            joinColumns = { @JoinColumn(name = "store_id") },
+            inverseJoinColumns = { @JoinColumn(name = "vet_id") })
+    private Set<UserEntity> vetList = new HashSet<>();
 
 
 
-    public void addVet(Vet vet) {
+    public void addVet(UserEntity vet) {
         this.vetList.add(vet);
     }
 
     public void removeVet(long vetId) {
-        Vet vet = this.vetList.stream().filter(t -> t.getId() == vetId).findFirst().orElse(null);
-        if (vet != null) {
-            this.vetList.remove(vet);
-        }
+        this.vetList.stream().filter(t -> t.getId() == vetId).findFirst().ifPresent(vet -> this.vetList.remove(vet));
     }
     public StoreDto asStore(){
-        return new StoreDto( name, address, city, country, owner);
+        return new StoreDto( id, name, address, city, country, owner);
     }
 }

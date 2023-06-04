@@ -8,6 +8,7 @@ import petmall.adapters.mysql.user.UserEntity;
 
 @Value
 public class StoreDto {
+   Long id;
    String name;
    String address;
    String city;

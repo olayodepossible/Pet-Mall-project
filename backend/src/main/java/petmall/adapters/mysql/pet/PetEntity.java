@@ -3,6 +3,7 @@ package petmall.adapters.mysql.pet;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import petmall.adapters.mysql.user.UserEntity;
@@ -17,6 +18,7 @@ import java.math.BigDecimal;
 
 @Data
 @Entity(name = "pets")
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -27,6 +29,7 @@ public class PetEntity {
     private Long id;
     private String name;
     private String gender;
+    private int age;
     private String description;
     private String imageUrl;
     private BigDecimal price;
@@ -39,8 +42,10 @@ public class PetEntity {
     @ManyToOne
     private UserEntity vet;
 
-
-    public Pet asPet() {
-        return new Pet( id, name, gender, description, imageUrl, breed, price, owner, vet);
+    public Pet asPetWithOwner() {
+        return Pet.builder().id(id).name(name).gender(gender).description(description)
+                .imageUrl(imageUrl).breed(breed).price(price).ownerUsername(owner.getUsername())
+                .ownerFirstName(owner.getFirstName()).ownerLastName(owner.getLastName()).ownerEmail(owner.getEmail())
+                .ownerDesignation(owner.getDesignation()).ownerAddress(owner.getAddress()).ownerCity(owner.getCity()).build();
     }
 }

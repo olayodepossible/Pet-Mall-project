@@ -38,4 +38,5 @@ public class UserEntity {
     public UserData asUser(){
         return new UserData(id, username, firstName, lastName, email,address, city, country, privilege, pets);
     }
+
 }

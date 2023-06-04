@@ -9,7 +9,7 @@ import petmall.api.accessory.dto.AccessoryData;
 import petmall.api.accessory.dto.CreateAccessoryRequest;
 import petmall.api.store.StoreService;
 import petmall.exception.AccessoryNotFoundException;
-import petmall.exception.StoreNotFoundException;
+import petmall.exception.DataNotFoundException;
 
 
 import javax.transaction.Transactional;
@@ -43,7 +43,7 @@ public class AccessoryFacade {
 
     @Transactional
     public AccessoryData addAccessory(long id, CreateAccessoryRequest accessory) {
-        Store store = storeService.getStoresByOwner(id).stream().findFirst().orElseThrow(() -> new StoreNotFoundException(String.format("Store with %d not found", id)));
+        Store store = storeService.getStoresByOwner(id).stream().findFirst().orElseThrow(() -> new DataNotFoundException(String.format("Store with %d not found", id)));
         AccessoryEntity accessoryEntity = accessoryFactory.getAccessoryProcessor(accessory.getAccessoryType()).processAccessoryTypeReq(accessory);
         accessoryEntity.setName(accessory.getName());
         accessoryEntity.setPrice(accessory.getPrice());
