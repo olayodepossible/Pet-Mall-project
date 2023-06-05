@@ -1,0 +1,169 @@
+.payment__body {
+  width: 30%;
+  margin: 30px auto;
+}
+
+.payment__gpay-button {
+  background-image: url(https://www.gstatic.com/instantbuy/svg/dark_gpay.svg);
+  background-size: contain;
+  background-origin: content-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #111;
+  display: block;
+  box-shadow: none;
+  padding: 12px 15% 10px;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.payment__card__opt {
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 20px 0;
+}
+.payment__card__opt > span {
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+.payment__group {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.payment__group > label {
+  color: #8898aa;
+  height: 40px;
+  line-height: 40px;
+}
+
+.payment__field {
+  display: block;
+  width: 90%;
+  background-color: white;
+  box-shadow: 0 7px 14px 0 rgba(49, 49, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  border: none;
+  font-weight: 400;
+  color: #31325f;
+  outline: none;
+  padding: 15px;
+  cursor: text;
+}
+
+.payment__group__select {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  height: 3.01em;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: 0.25em;
+  box-shadow: 0 7px 14px 0 rgba(49, 49, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+.payment__group__select > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  width: 90%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 0.5em;
+  background-color: #fff;
+  font-weight: 400;
+  color: #31325f;
+  cursor: pointer;
+}
+
+.payment__group__select > select::-ms-expand {
+  display: none;
+}
+
+.payment__group__select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background-color: #666ee8;
+  pointer-events: none;
+}
+
+.payment__group__select:hover::after {
+  color: #fff;
+}
+
+.payment__group__select::after {
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.payment__field::-webkit-input-placeholder {
+  color: #cfd7e0;
+}
+
+.payment__field::-moz-placeholder {
+  color: #cfd7e0;
+}
+
+.payment__body .payment__payNow {
+  float: left;
+  display: block;
+  background-color: #666ee8;
+  color: white;
+  border-radius: 4px;
+  border: 0;
+  margin: 20px 0px 10px 9px;
+  font-size: 15px;
+  font-weight: 400;
+  width: 100%;
+  height: 40px;
+  line-height: 38px;
+  outline: none;
+}
+
+.payment__body button:focus {
+  background-color: #555abf;
+}
+
+.payment__body button:active {
+  background-color: #43458b;
+}
+
+.payment__outcome {
+  float: left;
+  width: 100%;
+  padding-top: 8px;
+  min-height: 24px;
+  text-align: center;
+}
+
+.payment__success,
+.payment__error {
+  display: none;
+  font-size: 13px;
+}
+
+.payment__success .visible,
+.payment__error .visible {
+  display: inline;
+}
+
+.payment__error {
+  color: #e4584c;
+}
+
+.payment__success {
+  color: #666ee8;
+}

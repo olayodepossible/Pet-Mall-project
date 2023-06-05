@@ -1,4 +1,4 @@
-package petmall.infrastructure;
+package petmall.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
