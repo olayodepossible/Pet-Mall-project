@@ -25,7 +25,7 @@ const Navbar = () => {
           alt="logo"
         />
         <img
-          onClick={() => history("/cards")}
+          onClick={() => history("/profile")}
           className="nav__avatar"
           src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
           alt="avatar"

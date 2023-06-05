@@ -9,8 +9,8 @@ const Banner = () => {
   useEffect(() => {
     const fetchData = async () => {
       const req = await getData(requests.fetchNetflixOriginals);
-      const pet = await getPetMallData("/users/");
-      console.log("PET ==> ", pet);
+      // const pet = await getPetMallData("/users/");
+      // console.log("PET ==> ", pet);
       setMovie(req.data.results[Math.floor(Math.random() * req.data.results.length - 1)]);
       return requests;
     };

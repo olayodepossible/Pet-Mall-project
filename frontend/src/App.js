@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./styles/App.css"
 import { LandingPage } from "./LandingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";

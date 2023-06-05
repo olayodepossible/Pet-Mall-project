@@ -3,40 +3,29 @@ import Card from "./Card";
 import { Carousel } from "react-responsive-carousel";
 import { useSelector } from "react-redux";
 import { imageBaseUrl } from "../environment";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const CarouselSlider = ({ isLargeRow = false }) => {
   const movies = useSelector((state) => state.movie.data);
-  console.log("movies == ", movies);
+
   return (
-    <div>
-      <Carousel showArrows={true}>
-        <div className="row__poster">
+    
+      <Carousel showArrows={true} autoPlay infiniteLoop={true}>
+        
           {movies?.map(
             (movie) =>
               ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) && (
-                <>
-                  <img
-                    className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                <div style={styles.carosel}>
+                  <img style={{objectFit: "contain", height:"100%"}}
                     key={movie.id}
                     src={`${imageBaseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                     alt={movie.name}
                   />
-                  <p className="legend">Legend 1</p>
-                </>
+                </div>
               )
           )}
-        </div>
+        
       </Carousel>
-      {/* <div className="veiw_port" style={styles.view_port}>
-        <div className="card_container" style={styles.card_container}>
-          <Card num="1" />
-          <Card num="2" />
-          <Card num="3" />
-          <Card num="4" />
-          <Card num="5" />
-        </div>
-      </div> */}
-    </div>
   );
 };
 
@@ -58,4 +47,9 @@ const styles = {
     flexDirection: "row",
     width: "fit-content",
   },
+
+  carosel: {
+    height: "40vh",
+    
+  }
 };
