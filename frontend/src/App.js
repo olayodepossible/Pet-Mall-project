@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./styles/App.css"
+import "./styles/App.css";
 import { LandingPage } from "./LandingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
@@ -32,7 +32,6 @@ function App() {
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/profile" element={<UserProfile />} />
             <Route exact path="/checkout" element={<Payment />} />
-            <Route exact path="/cards" element={<CarouselSlider />} />
           </Routes>
         </Router>
       )}
