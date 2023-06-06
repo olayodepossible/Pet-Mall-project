@@ -1,21 +1,34 @@
-import './flippable-card.css';
-import Card from './card/card';
-import {CSSTransition} from 'react-transition-group';
 import {useState} from 'react';
+import '../styles/flippable-card.css'
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import FlipCard from './card/FlipCard';
+
 
 function FlippableCard() {
     const [showFront, setShowFront] = useState(true);
+    const [activeCard, setActiveCard] = useState(null);
+    const handleCardClick = (id) => {
+        setActiveCard(activeCard === id ? null : id);
+      };
+    const items = [1, 2, 3]
+
+    
+        
+            
     return(
         <div className="flippable-card-container">
-            <CSSTransition
-                in={showFront}
-                timeout={300}
-                classNames='flip'
-            >
-                <Card onClick={() => {
-                    setShowFront((v) => !v);
-                }}/>
-            </CSSTransition>
+            {
+                items.map((item, i) => (
+                    
+                    <FlipCard 
+                        key={i}
+                        item={item} 
+                        id={i}
+                        active={i === activeCard}
+                        handleClick={handleCardClick}
+                    />
+                ))
+            }
         </div>
     );
 }

@@ -29,11 +29,6 @@
     /* Alignment */
     position: absolute;
   
-    /* Content Alignment */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
     /* Content Styling */
     font-family: Montserrat;
     font-weight: 800;

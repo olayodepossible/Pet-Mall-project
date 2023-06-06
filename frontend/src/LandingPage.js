@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import MovieRow from "./components/MovieRow";
 import requests from "./adapter/RequestEndpoints";
 import CarouselSlider from "./components/CarouselSlider";
+import FlippableCard from "./components/FlippableCard";
 
 export const LandingPage = () => {
   return (
@@ -11,6 +12,7 @@ export const LandingPage = () => {
       <Navbar />
       <CarouselSlider/>
       <MovieRow title="NETFLIX ORIGINALS" fetchUrl={requests.fetchNetflixOriginals} isLargeRow={true} />
+      <FlippableCard/>
     </div>
   );
 };

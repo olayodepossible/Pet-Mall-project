@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "./Card";
 import { Carousel } from "react-responsive-carousel";
 import { useSelector } from "react-redux";
 import { imageBaseUrl } from "../environment";
@@ -15,9 +14,9 @@ const CarouselSlider = ({ isLargeRow = false }) => {
           {movies?.map(
             (movie) =>
               ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) && (
-                <div style={styles.carosel}>
+                <div style={styles.carosel} key={movie.id}>
                   <img style={{objectFit: "contain", height:"100%"}}
-                    key={movie.id}
+                    
                     src={`${imageBaseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                     alt={movie.name}
                   />

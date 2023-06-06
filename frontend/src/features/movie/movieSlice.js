@@ -10,7 +10,6 @@ export const movieSlice = createSlice({
 
   reducers: {
     movieData: (state, action) => {
-      console.log("action", action);
       state.data = action.payload;
     },
   },
