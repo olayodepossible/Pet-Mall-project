@@ -9,6 +9,7 @@ import { login, logout } from "./features/user/userSlice";
 import UserProfile from "./components/UserProfile";
 import Payment from "./components/Payment";
 import CarouselSlider from "./components/CarouselSlider";
+import Footer from "./components/Footer";
 
 function App() {
   const user = useSelector((state) => state.user.data);
@@ -35,6 +36,7 @@ function App() {
           </Routes>
         </Router>
       )}
+      <Footer />
     </div>
   );
 }
