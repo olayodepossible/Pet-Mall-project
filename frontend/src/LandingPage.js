@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/LandingPage.css";
 import Navbar from "./components/Navbar";
-import MovieRow from "./components/MovieRow";
+import TrendingPet from "./components/TrendingPet";
 import requests from "./adapter/RequestEndpoints";
 import CarouselSlider from "./components/CarouselSlider";
 import FlippableCard from "./components/FlippableCards";
@@ -11,7 +11,7 @@ export const LandingPage = () => {
     <div className="home">
       <Navbar />
       <CarouselSlider />
-      <MovieRow title="NETFLIX ORIGINALS" fetchUrl={requests.fetchNetflixOriginals} isLargeRow={true} />
+      <TrendingPet title="TRENDING-PET" fetchUrl={requests.fetchTrendingPet} />
       <FlippableCard fetchUrl={requests.fetchNetflixOriginals} />
     </div>
   );

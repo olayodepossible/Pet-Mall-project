@@ -18,12 +18,15 @@ const Navbar = () => {
   return (
     <div className={`nav ${show && "nav__black"}`}>
       <div className="nav__contents">
-        <img
-          onClick={() => history("/")}
-          className="nav__logo"
-          src="https://lh3.googleusercontent.com/dheqqmTiQK8sOgDHjAmrg4IjAY5Io2gUd8y0nXegWZi8JpK14v3WCN8wa63UoLot7sFxqZ9ohHpsUUELkBONNiEfM96i-w6QzSiCSJ-6uQ"
-          alt="logo"
-        />
+        <span>
+          <img
+            onClick={() => history("/")}
+            className="nav__logo"
+            src="https://lh3.googleusercontent.com/dheqqmTiQK8sOgDHjAmrg4IjAY5Io2gUd8y0nXegWZi8JpK14v3WCN8wa63UoLot7sFxqZ9ohHpsUUELkBONNiEfM96i-w6QzSiCSJ-6uQ"
+            alt="logo"
+          />
+          <span>ALX-PET-MALL</span>
+        </span>
         <img
           onClick={() => history("/profile")}
           className="nav__avatar"

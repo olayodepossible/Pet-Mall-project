@@ -13,6 +13,7 @@
 
 .footer__black {
   background-color: #111;
+  color: #fff;
 }
 
 .footer__logo {
@@ -21,10 +22,7 @@
   cursor: pointer;
 }
 
-.footer__avatar {
-  cursor: pointer;
+.footer__copyright {
   position: fixed;
-  right: 20px;
-  width: 30px;
-  height: 30px;
+  right: 30px;
 }

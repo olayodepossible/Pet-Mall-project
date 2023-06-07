@@ -4,14 +4,12 @@ import requests from "../adapter/RequestEndpoints";
 import "../styles/Banner.css";
 
 const Banner = () => {
-  const [movie, setMovie] = useState([]);
+  const [trendingPets, setTrendingPet] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const req = await getData(requests.fetchNetflixOriginals);
-      // const pet = await getPetMallData("/users/");
-      // console.log("PET ==> ", pet);
-      setMovie(req.data.results[Math.floor(Math.random() * req.data.results.length - 1)]);
+      const req = await getData("https://dog.ceo/api/breed/germanshepherd/images");
+      setTrendingPet(req.data.results[Math.floor(Math.random() * req.data.results.length - 1)]);
       return requests;
     };
     fetchData();

@@ -1,5 +1,5 @@
-.movieRow {
-  color: #fff;
+.TrendingPet {
+  color: #111;
   margin-left: 20px;
 }
 
@@ -12,8 +12,7 @@
 }
 
 .row__posters::-webkit-scrollbar {
-  /* for google */
-  display: none;
+  display: none; /* for google */
 }
 
 .row__poster {

@@ -1,20 +1,14 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import "../styles/flippable-card.css";
 import FlipCard from "./FlipCard";
 
 function FlippableCards() {
-  const movies = useSelector((state) => state.movie.data);
-  const [showFront, setShowFront] = useState(true);
-  const [activeCard, setActiveCard] = useState(null);
-  const handleCardClick = (id) => {
-    setActiveCard(activeCard === id ? null : id);
-  };
+  const pets = useSelector((state) => state.pet.data);
 
   return (
     <div className="flippable-card-container">
-      {movies.map((item, i) => (
-        <FlipCard key={item.id} movie={item} />
+      {pets.map((item, i) => (
+        <FlipCard key={i} pet={item} index={i} />
       ))}
     </div>
   );

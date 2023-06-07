@@ -1,44 +1,32 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
-import { useSelector } from "react-redux";
-import { imageBaseUrl } from "../environment";
 import { getData, getPetMallData } from "../adapter/Axio";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const CarouselSlider = ({ isLargeRow = false }) => {
- 
   const [petImages, setPetImages] = useState([]);
-  const movies = useSelector((state) => state.movie.data);
 
   useEffect(() => {
     const fetchData = async () => {
-      const req = await getData('https://dog.ceo/api/breed/bulldog/images');
-      console.log('reqim', req.data.message[0])
+      const req = await getData("https://dog.ceo/api/breed/bulldog/images");
       // const pet = await getPetMallData("/users/");
       // console.log("PET ==> ", pet);
-      const pet = req.data.message.slice(0, 11)
+      const pet = req.data.message.slice(0, 11);
       setPetImages([...pet]);
-      
+
       return req;
     };
     fetchData();
   }, []);
 
-  console.log('reqim - test', petImages[0])
+  console.log("reqim - test", petImages[0]);
   return (
-    <Carousel  autoPlay infiniteLoop={true}>
-      {petImages?.map(
-        (imageUrl, i) =>
-          
-            <div style={styles.carosel_container} key={i}>
-              <img
-                style={{ objectFit: "contain", height: "100%" }}
-                src={imageUrl}
-                alt="pet image"
-              />
-            </div>
-        
-      )}
+    <Carousel autoPlay infiniteLoop={true}>
+      {petImages?.map((imageUrl, i) => (
+        <div style={styles.carosel_container} key={i}>
+          <img style={{ objectFit: "contain", height: "100%" }} src={imageUrl} alt="pet image" />
+        </div>
+      ))}
     </Carousel>
   );
 };
