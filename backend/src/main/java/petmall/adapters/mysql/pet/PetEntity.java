@@ -43,9 +43,10 @@ public class PetEntity {
     private UserEntity vet;
 
     public Pet asPetWithOwner() {
-        return Pet.builder().id(id).name(name).gender(gender).description(description)
+        return Pet.builder().id(id).name(name).gender(gender).age(age).description(description)
                 .imageUrl(imageUrl).breed(breed).price(price).ownerUsername(owner.getUsername())
-                .ownerFirstName(owner.getFirstName()).ownerLastName(owner.getLastName()).ownerEmail(owner.getEmail())
-                .ownerDesignation(owner.getDesignation()).ownerAddress(owner.getAddress()).ownerCity(owner.getCity()).build();
+                .ownerId(owner.getId()).ownerFirstName(owner.getFirstName()).ownerLastName(owner.getLastName())
+                .ownerEmail(owner.getEmail()).ownerDesignation(owner.getDesignation()).ownerAddress(owner.getAddress())
+                .ownerCity(owner.getCity()).build();
     }
 }

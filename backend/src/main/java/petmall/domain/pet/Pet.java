@@ -21,6 +21,7 @@ public class Pet {
     String breed;
     @NonFinal
     BigDecimal price;
+    long ownerId;
     String ownerUsername;
     String ownerFirstName;
     String ownerLastName;
@@ -28,5 +29,6 @@ public class Pet {
     String ownerDesignation;
     String ownerAddress;
     String ownerCity;
+    String storeLink;
 
 }

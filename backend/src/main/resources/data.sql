@@ -92,6 +92,15 @@ VALUES ("cat", 20, "Blacey", "Male", 20, "Get acquaintance","https://static.stan
 INSERT IGNORE INTO pets (pet_type, id, name, gender, age, description, image_url, price, breed, user_id, vet_id)
 VALUES ("cat", 21, "Blurry", "Male", 20, "Get acquaintance", "https://static.toiimg.com/thumb/resizemode-4,width-1200,height-900,msid-72295960/72295960.jpg", 150, "SPHYNX", 8, null);
 
+INSERT IGNORE INTO pets (pet_type, id, name, gender, age, description, image_url, price, breed, user_id, vet_id)
+VALUES ("dog", 22, "Hannah", "Male", 20, "Get acquaintance", "https://images.dog.ceo/breeds/germanshepherd/Hannah.jpg", 250, "SPHYNX", 8, null);
+
+INSERT IGNORE INTO pets (pet_type, id, name, gender, age, description, image_url, price, breed, user_id, vet_id)
+VALUES ("dog", 23, "Alsatian", "Male", 20, "Get acquaintance", "https://images.dog.ceo/breeds/germanshepherd/KSYR_German-Shepherd-dog-Alsatian.jpg", 350, "SPHYNX", 8, null);
+
+INSERT IGNORE INTO pets (pet_type, id, name, gender, age, description, image_url, price, breed, user_id, vet_id)
+VALUES ("dog", 24, "KSYR-German_Shepherd", "Male", 20, "Get acquaintance", "https://images.dog.ceo/breeds/germanshepherd/KSYR_German_Sheperd.jpg", 450, "SPHYNX", 7, null);
+
 -- STORE --
 INSERT IGNORE INTO stores ( id, name, address, city, country, owner_id )
 VALUES ( 1, "McLaurel Pet Store", "22, MacLaure Street", "LA", "USA", 7);
