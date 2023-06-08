@@ -5,14 +5,31 @@ const Footer = () => {
   return (
     <div className="footer footer__black">
       <div className="footer__contents">
-        <img
-          className="footer__logo"
-          src="https://lh3.googleusercontent.com/dheqqmTiQK8sOgDHjAmrg4IjAY5Io2gUd8y0nXegWZi8JpK14v3WCN8wa63UoLot7sFxqZ9ohHpsUUELkBONNiEfM96i-w6QzSiCSJ-6uQ"
-          alt="logo"
-        />
-        <span className="footer__copyright">
-          Copyright &copy; 2020 by&nbsp;&nbsp; O'possible. &nbsp;All rights reserved.
-        </span>
+        <div>
+          <img
+            className="footer__logo"
+            src="/pet-mall-logo.jpg"
+            alt="logo"
+          />
+        </div>
+
+        <div>
+          <span>Contact: &nbsp;</span>
+          <img
+              className="footer__mail"
+              src="/asset/Gmail_Logo.png"
+              alt="logo"
+            />
+            <span className="">
+            possibleolayode5344@gmail.com
+            </span>
+        </div>
+        
+        <div>
+          <span className="footer__copyright">
+            2023 &copy; &nbsp; O'possible.
+          </span>
+        </div>
       </div>
     </div>
   );

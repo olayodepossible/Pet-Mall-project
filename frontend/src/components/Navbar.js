@@ -22,10 +22,10 @@ const Navbar = () => {
           <img
             onClick={() => history("/")}
             className="nav__logo"
-            src="https://lh3.googleusercontent.com/dheqqmTiQK8sOgDHjAmrg4IjAY5Io2gUd8y0nXegWZi8JpK14v3WCN8wa63UoLot7sFxqZ9ohHpsUUELkBONNiEfM96i-w6QzSiCSJ-6uQ"
+            src="/pet-mall-logo.jpg"
             alt="logo"
           />
-          <span>ALX-PET-MALL</span>
+          <span className="nav__title">ALX-PET-MALL</span>
         </span>
         <img
           onClick={() => history("/profile")}

@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./features/user/userSlice";
 import UserProfile from "./components/UserProfile";
 import Payment from "./components/Payment";
-import CarouselSlider from "./components/CarouselSlider";
 import Footer from "./components/Footer";
 
 function App() {

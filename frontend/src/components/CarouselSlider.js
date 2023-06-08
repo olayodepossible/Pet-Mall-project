@@ -11,7 +11,7 @@ const CarouselSlider = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const req = await getData("https://dog.ceo/api/breed/bulldog/images");
+      const req = await getData("/bulldog/images");
       const petResp = await getPetMallData("/pets/store");
       dispatch(petData(petResp.data));
       const pet = req.data.message.slice(0, 11);
@@ -22,12 +22,11 @@ const CarouselSlider = () => {
     fetchData();
   }, []);
 
-  console.log("reqim - test", petImages[0]);
   return (
     <Carousel autoPlay infiniteLoop={true}>
       {petImages?.map((imageUrl, i) => (
         <div style={styles.carosel_container} key={i}>
-          <img style={{ objectFit: "contain", height: "100%" }} src={imageUrl} alt="pet image" />
+          <img style={{ objectFit: "contain", height: "100%" }} src={imageUrl} alt="pet" />
         </div>
       ))}
     </Carousel>
