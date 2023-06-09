@@ -8,6 +8,7 @@ import petmall.adapters.mysql.accessories.AccessoryEntity;
 import petmall.api.accessory.dto.AccessoryData;
 import petmall.api.accessory.dto.CreateAccessoryRequest;
 import petmall.api.store.StoreService;
+import petmall.api.store.dto.StoreDto;
 import petmall.exception.DataNotFoundException;
 
 
@@ -42,14 +43,14 @@ public class AccessoryFacade {
 
     @Transactional
     public AccessoryData addAccessory(long id, CreateAccessoryRequest accessory) {
-        Store store = storeService.getStoresByOwner(id).stream().findFirst().orElseThrow(() -> new DataNotFoundException(String.format("Store with %d not found", id)));
+        StoreDto store = storeService.getStoresByOwner(id).stream().findFirst().orElseThrow(() -> new DataNotFoundException(String.format("Store with %d not found", id)));
         AccessoryEntity accessoryEntity = accessoryFactory.getAccessoryProcessor(accessory.getAccessoryType()).processAccessoryTypeReq(accessory);
         accessoryEntity.setName(accessory.getName());
         accessoryEntity.setPrice(accessory.getPrice());
         accessoryEntity.setImageUrl(accessory.getImageUrl());
         accessoryEntity.setPetType(accessory.getPetType());
         accessoryEntity.setDescription(accessory.getDescription());
-        accessoryEntity.setStore(store);
+        accessoryEntity.setStore(store.asStoreEntity());
         return accessoryRepository.save(accessoryEntity).asAccessoryData();
     }
 

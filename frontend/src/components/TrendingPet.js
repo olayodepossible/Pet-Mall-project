@@ -18,12 +18,18 @@ const TrendingPet = ({ title, fetchUrl }) => {
 
   return (
     <div className="TrendingPet">
-      <h2>{title}</h2>
-      <div className="row__posters">
-        {pets?.map((imageUrl, i) => (
-          <img className="row__poster row__posterLarge" key={i} src={imageUrl} alt={title} />
-        ))}
+    {pets? 
+      <div>
+        <h2>{title}</h2>
+        <div className="row__posters">
+          {pets?.map((imageUrl, i) => (
+            <img className="row__poster row__posterLarge" key={i} src={imageUrl} alt={title} />
+          ))}
+        </div>
       </div>
+      :
+      <h2>{title} loading...</h2>
+      }
     </div>
   );
 };

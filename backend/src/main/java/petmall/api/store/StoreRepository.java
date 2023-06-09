@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import petmall.adapters.mysql.Store;
 import petmall.adapters.mysql.user.UserEntity;
 import petmall.adapters.mysql.user.Vet;
+import petmall.api.store.dto.StoreDto;
 
 import java.util.Collection;
 import java.util.List;

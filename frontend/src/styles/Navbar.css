@@ -15,6 +15,10 @@
   background-color: #111;
 }
 
+.nav__contents{
+  display: flex;
+  justify-content: space-between;
+}
 .nav__logo {
   position: fixed;
   top: 10px;
@@ -26,9 +30,18 @@
 }
 .nav__title{
   display: inline-block;
-    margin-left: 92px;
-    font-size: 20px;
-    font-weight: 800;
+  margin-left: 92px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.nav__page__title{
+  display: block;
+  margin: 5px 0 0 92px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  
 }
 .nav__black .nav__title{
   color: #fff;

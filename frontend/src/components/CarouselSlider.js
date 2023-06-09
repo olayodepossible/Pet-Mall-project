@@ -23,13 +23,23 @@ const CarouselSlider = () => {
   }, []);
 
   return (
-    <Carousel autoPlay infiniteLoop={true}>
+    <>
+    {
+      petImages.length !== 0 ? 
+      <Carousel autoPlay infiniteLoop={true}>
       {petImages?.map((imageUrl, i) => (
         <div style={styles.carosel_container} key={i}>
-          <img style={{ objectFit: "contain", height: "100%" }} src={imageUrl} alt="pet" />
+          <img style={styles.carosel__image} src={imageUrl} alt="pet" />
         </div>
-      ))}
-    </Carousel>
+
+      )) }
+      </Carousel>
+      : <div style={styles.carosel_container}>
+     
+        <p style={styles.carosel_loadiing}>Loading...</p>
+        </div>
+        }
+        </>
   );
 };
 
@@ -40,4 +50,12 @@ const styles = {
     height: "40vh",
     marginTop: "20px",
   },
+  carosel__image: {
+    objectFit: "contain", 
+    height: "100%" 
+  },
+  carosel_loadiing:{
+    paddingLeft: "10px",
+    marginTop: "100px",
+  }
 };

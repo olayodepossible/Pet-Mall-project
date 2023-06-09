@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
-const Navbar = () => {
+const Navbar = ({pageTitle, isLandingPage=false}) => {
   const [show, handleShow] = useState(false);
-
+console.log('pageTitile', pageTitle)
   const transitionNavBar = () => {
     window.scrollY > 100 ? handleShow(true) : handleShow(false);
   };
@@ -16,23 +16,30 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`nav ${show && "nav__black"}`}>
+    <div className={`nav ${isLandingPage ? show && "nav__black" : "nav__black" }`}>
       <div className="nav__contents">
-        <span>
+        <div>
           <img
             onClick={() => history("/")}
             className="nav__logo"
             src="/pet-mall-logo.jpg"
             alt="logo"
           />
-          <span className="nav__title">ALX-PET-MALL</span>
-        </span>
-        <img
-          onClick={() => history("/profile")}
-          className="nav__avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-          alt="avatar"
-        />
+
+          <p>
+            <span className="nav__title">ALX-PET-MALL</span>
+            <span className="nav__page__title">{!isLandingPage && pageTitle }</span>
+          </p>
+        </div>
+
+        <div>
+          <img
+            onClick={() => history("/pet-mall/profile")}
+            className="nav__avatar"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+            alt="avatar"
+          />
+        </div>
       </div>
     </div>
   );

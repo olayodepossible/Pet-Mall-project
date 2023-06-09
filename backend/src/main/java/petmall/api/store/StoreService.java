@@ -35,8 +35,14 @@ public class StoreService {
         return storeRepository.findAll().stream().map(Store::asStore).collect(Collectors.toList());
     }
 
-    public Collection<Store> getStoresByOwner(long id) {
-        return storeRepository.findByOwner(id);
+    public Collection<StoreDto> getStoresByOwner(long id) {
+       return storeRepository.findByOwner(id).stream().map(Store::asStore).collect(Collectors.toList());
+
+    }
+
+    public StoreDto getStore(long id) {
+       Store store = storeRepository.findById(id).orElseThrow(() -> new DataNotFoundException(STORE_NOT_FOUND+ id));
+       return store.asStore();
     }
 
     public StoreDto updateStoresByOwner(long id, long storeId, StoreDto dto) {

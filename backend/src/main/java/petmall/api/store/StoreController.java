@@ -26,11 +26,15 @@ public class StoreController {
     public ResponseEntity<List<StoreDto>> getStores(){
         return new ResponseEntity<>(storeService.getAllStore(), HttpStatus.OK);
     }
-    @GetMapping("/{ownerId}")
-    public ResponseEntity<Collection<Store>> getStore(@RequestParam long ownerId){
+    @GetMapping("/owner")
+    public ResponseEntity<Collection<StoreDto>> getStoresByOwner(@RequestParam long ownerId){
         return new ResponseEntity<>(storeService.getStoresByOwner(ownerId), HttpStatus.OK);
     }
-    @PutMapping("/owner/{ownerId}/store")
+    @GetMapping("/{id}")
+    public ResponseEntity<StoreDto> getStore(@PathVariable long id){
+        return new ResponseEntity<>(storeService.getStore(id), HttpStatus.OK);
+    }
+    @PutMapping("/owner")
     public ResponseEntity<StoreDto> updateStore(@RequestParam long ownerId, @RequestParam long storeId, @RequestBody StoreDto req){
         return new ResponseEntity<>(storeService.updateStoresByOwner(ownerId, storeId, req), HttpStatus.OK);
     }

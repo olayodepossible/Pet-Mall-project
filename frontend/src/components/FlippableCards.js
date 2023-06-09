@@ -1,14 +1,12 @@
-import { useSelector } from "react-redux";
 import "../styles/flippable-card.css";
 import FlipCard from "./FlipCard";
 
-function FlippableCards() {
-  const pets = useSelector((state) => state.pet.data);
-
+const FlippableCards = ({dataList, btnAction}) => {
+  
   return (
     <div className="flippable-card-container">
-      {pets.map((item, i) => (
-        <FlipCard key={i} pet={item} index={i} />
+      {dataList?.map((item, i) => (
+        <FlipCard key={i} pet={item} index={i} btnAction={btnAction}/>
       ))}
     </div>
   );

@@ -26,7 +26,6 @@ public class Store {
     private String address;
     private String city;
     private String country;
-    @JsonIgnore
     @ManyToOne
     private UserEntity owner;
     @OneToMany (mappedBy = "store")
@@ -52,6 +51,9 @@ public class Store {
         this.vetList.stream().filter(t -> t.getId() == vetId).findFirst().ifPresent(vet -> this.vetList.remove(vet));
     }
     public StoreDto asStore(){
-        return new StoreDto( id, name, address, city, country, owner);
+        return StoreDto.builder()
+                .id(id).name(name).address(address).city(city)
+                .country(country).managerId(owner.getId()).storePets(owner.getPets())
+                .accessoryList(accessoryList).vetList(vetList).build();
     }
 }

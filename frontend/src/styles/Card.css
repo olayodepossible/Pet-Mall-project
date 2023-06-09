@@ -28,7 +28,6 @@
 }
 
 .card__back {
-  /* display: flex; */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -36,9 +35,34 @@
   background-color: #5fcf80;
   color: #fff;
   transform: rotateY(180deg);
+  line-height: 1;
+  
+}
+.card__pet__details p{
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
 }
 
 .card__img {
   height: 100%;
   width: 100%;
+}
+.card__button{
+  width: 90%;
+  margin: 20px auto 0 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1a7386;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.card__button:hover{
+  opacity: 1;
 }
