@@ -47,6 +47,26 @@
   color: #fff;
 }
 
+.nav__cart__img{
+  width: 35px;
+  background-color: #fff;
+  position: fixed;
+  right: 60px;
+  top: 21px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.nav__cart__items{
+  position: fixed;
+  right: 70px;
+  top: 10px;
+  color: #e50914;
+  background-color: #fff;
+  z-index: 3;
+  border-radius: 100%;
+  padding: 6px 10px;
+}
+
 .nav__avatar {
   cursor: pointer;
   position: fixed;

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
-const Navbar = ({pageTitle, isLandingPage=false}) => {
+
+
+const Navbar = ({pageTitle, cartItems, isLandingPage=false}) => {
   const [show, handleShow] = useState(false);
-console.log('pageTitile', pageTitle)
+console.log('pageTitile', cartItems)
   const transitionNavBar = () => {
     window.scrollY > 100 ? handleShow(true) : handleShow(false);
   };
@@ -33,10 +35,16 @@ console.log('pageTitile', pageTitle)
         </div>
 
         <div>
+        {!isLandingPage &&  
+        <button  onClick={() => history("/")}>
+          {cartItems ? <span className="nav__cart__items">{cartItems.length}</span> : null}
+          <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
+        </button>}
+       
           <img
             onClick={() => history("/pet-mall/profile")}
             className="nav__avatar"
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+            src="/asset/Netflix-avatar.png"
             alt="avatar"
           />
         </div>

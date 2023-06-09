@@ -14,9 +14,7 @@ import StorePage from "./components/StorePage";
 function App() {
   const user = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
-  const params = useParams();
-  console.log('params', params)
-  const id = 1;
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -36,7 +34,7 @@ function App() {
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/pet-mall/profile" element={<UserProfile />} />
             <Route exact path="/pet-mall/checkout" element={<Payment />} />
-            <Route exact path="/pet-mall/store/:id" element={<StorePage storeId={id}/>} />
+            <Route exact path="/pet-mall/store/:id" element={<StorePage />} />
           </Routes>
         </Router>
       )}

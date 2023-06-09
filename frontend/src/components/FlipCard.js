@@ -1,8 +1,9 @@
 import "../styles/Card.css";
 import { useNavigate } from "react-router-dom";
 
-const FlipCard = ({ pet, btnAction }) => {
+const FlipCard = ({ pet, btnAction, addToCart, isStorePage}) => {
   const history = useNavigate();
+  console.log('isStorage', pet.managerId)
 
   return (
     <div className="card__container">
@@ -38,7 +39,9 @@ const FlipCard = ({ pet, btnAction }) => {
             </p>
 
           </div>
-          <button onClick={() => history(`pet-mall/store/${pet.ownerId}`)} className="card__button">{btnAction}</button>
+          {isStorePage ? <button  onClick={() => addToCart(pet)  } className="card__button">{btnAction}</button>  :
+           <button  onClick={() => history(`/pet-mall/store/${pet.ownerId}`) } className="card__button">{btnAction}</button> }
+          
         </div>
       </div>
     </div>
