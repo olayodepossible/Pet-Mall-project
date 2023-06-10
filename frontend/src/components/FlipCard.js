@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const FlipCard = ({ pet, btnAction, addToCart, isStorePage, inCart}) => {
   const history = useNavigate();
-  console.log('isStorage', pet.managerId)
 
   const handleAddToCart = (e) => {
     addToCart(pet);
   }
+
 
 
   return (
@@ -19,7 +19,7 @@ const FlipCard = ({ pet, btnAction, addToCart, isStorePage, inCart}) => {
           {isStorePage && <div className="items">
             <img src={pet.imageUrl}></img>
             <div className="info">
-              <h3>{pet.name}</h3>
+              <h3>{pet.name?.length ? pet.name.substr(0, 12 - 1) + "..." : pet.name}</h3>
               <span>£ {pet.price}</span>
               <button onClick={handleAddToCart}
                 disabled={inCart}

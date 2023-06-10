@@ -14,17 +14,21 @@ const ShoppingCartProduct = ({item, indexInCart, removeFromCart, updateAmountToP
     updateAmountToPay(item);
     }
 
+    console.log('item', item)
+
     return(
         <tr className="items-in-cart">
-          <td><img src={this.props.item.image}></img></td>
-          <td>{this.props.item.name}</td>
-          <td>£{this.props.item.price}</td>
+          <td><img src={item.imageUrl}></img></td>
+          <td>{item.name}</td>
+          <td>&#36;{item.price}</td>
           <td>
-            <input type="number" name="quantity" min="1" max="10" onChange={this.handleQuantityChange} />
+            <input type="number" name="quantity" min="1" max="10" onChange={handleQuantityChange} />
           </td>
-          <td>£{this.props.item.price * this.props.item.quantityInCart}</td>
-          <td><i className="fas fa-trash"
-                onClick={this.handleRemoveFromCart}></i></td>
+          <td>£{item.price * item.quantityInCart}</td>
+          <td><button className="fas fa-trash"
+                onClick={handleRemoveFromCart}>
+                  <img src="/asset/black-trash.jpeg" alt="trash can"  style={{width: "16px"}}/>
+                </button></td>
         </tr>
       )
 }

@@ -4,6 +4,9 @@ import ShoppingCartProduct from './ShoppingCartProduct';
 
 const Modal = ({quantity, dataList, itemsInCart, removeFromCart, setOpenModal }) => {
     let totalPrice = 0;
+    const updateAmountToPay = (item) => {
+        console.log('update Amoninttn')       // this.forceUpdate();
+    }
 
     let cartItems = itemsInCart.map((item, index) => {
         // Return key which defines an order of items inside a cart. The order in a cart is different than in database
@@ -14,9 +17,7 @@ const Modal = ({quantity, dataList, itemsInCart, removeFromCart, setOpenModal })
                  updateAmountToPay={updateAmountToPay} />  
     });
 
-    const updateAmountToPay = (item) => {
-        // this.forceUpdate();
-    }
+   
       
         
     let amountToPay = 0;

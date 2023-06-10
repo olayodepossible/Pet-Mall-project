@@ -8,7 +8,6 @@ const Navbar = ({pageTitle, dataList, amountToPay, quantity, itemsInCart, remove
 
   const [show, handleShow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  console.log('pageTitile', quantity)
   const transitionNavBar = () => {
     window.scrollY > 100 ? handleShow(true) : handleShow(false);
   };

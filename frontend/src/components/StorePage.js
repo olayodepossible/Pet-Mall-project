@@ -6,7 +6,6 @@ import { getPetMallData } from "../adapter/Axio";
 
 const StorePage = () => {
   let params = useParams();
-  console.log('first', params)
   const [store, setStore] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const [itemsInCart, setItemsCart] = useState([]);
@@ -19,12 +18,14 @@ const StorePage = () => {
   };
 
   const addToCart = (item)  => {
+    let cartItem = shoppingProducts.filter(i => i.id == item.id);
     setItemsCart([...itemsInCart, item.id])
-    shoppingProducts[item.id].inCart = true;
-    shoppingProducts[item.id].quantityInCart = 1;
+    cartItem[0]["inCart"] = true;
+    cartItem[0]["quantityInCart"] = 1;
     setQuantity(quantity + 1)
-    setAmountToPay(amountToPay + shoppingProducts[item.id].price)
-    setShoppingProducts([...shoppingProducts]);
+    setAmountToPay(amountToPay + cartItem.price)
+    setShoppingProducts([...shoppingProducts, cartItem]);
+
   }
 
   const removeFromCart = (item, indexInCart) => {
