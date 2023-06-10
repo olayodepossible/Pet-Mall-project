@@ -1,0 +1,11 @@
+.items-in-cart {
+    text-align: center;
+}
+
+.items-in-cart img {
+    width: 4em;
+    height: auto;
+  }
+td {
+padding: 0 1.5em 0 1.5em;
+}

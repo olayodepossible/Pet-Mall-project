@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 
-const Navbar = ({pageTitle, cartItems, isLandingPage=false}) => {
+const Navbar = ({pageTitle, dataList, amountToPay, quantity, itemsInCart, removeFromCart, isLandingPage=false}) => {
+
   const [show, handleShow] = useState(false);
-console.log('pageTitile', cartItems)
+  const [modalOpen, setModalOpen] = useState(false);
+  console.log('pageTitile', quantity)
   const transitionNavBar = () => {
     window.scrollY > 100 ? handleShow(true) : handleShow(false);
   };
@@ -36,10 +39,11 @@ console.log('pageTitile', cartItems)
 
         <div>
         {!isLandingPage &&  
-        <button  onClick={() => history("/")}>
-          {cartItems ? <span className="nav__cart__items">{cartItems.length}</span> : null}
+        <button  onClick={() => {setModalOpen(true);}}  style={{cursor: "pointer"}}>
+          {quantity && <span className="nav__cart__items">{quantity}</span> }
           <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
-        </button>}
+        </button>
+        }
        
           <img
             onClick={() => history("/pet-mall/profile")}
@@ -49,6 +53,8 @@ console.log('pageTitile', cartItems)
           />
         </div>
       </div>
+
+      {modalOpen && <Modal dataList={dataList} itemsInCart={itemsInCart} setOpenModal={setModalOpen} quantity={quantity}/>}
     </div>
   );
 };

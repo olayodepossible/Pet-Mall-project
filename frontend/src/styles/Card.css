@@ -66,3 +66,49 @@
 .card__button:hover{
   opacity: 1;
 }
+
+
+.items img {
+  width: 25%;
+  height: 10prem;
+}
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0.5em 1em 0.5em 1em;
+  padding: 0 5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.info h3{
+  margin-bottom: 3px;
+}
+.info button {
+  margin-top: 1em;
+  background-color: #111;
+  color: rgb(220,230,220);
+  padding: 0.5em;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+.info button:hover {
+  opacity: 1;
+}
+.info .button-disabled {
+  background-color: rgb(180,40,40);
+  cursor: default;
+}
+
+.hide-price {
+  display: none;
+}
+
