@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
 
-const Navbar = ({pageTitle, dataList, amountToPay, quantity, itemsInCart, removeFromCart, isLandingPage=false}) => {
+const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart, isLandingPage=false}) => {
 
   const [show, handleShow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -53,7 +53,7 @@ const Navbar = ({pageTitle, dataList, amountToPay, quantity, itemsInCart, remove
         </div>
       </div>
 
-      {modalOpen && <Modal dataList={dataList} itemsInCart={itemsInCart} setOpenModal={setModalOpen} quantity={quantity}/>}
+      {modalOpen && <Modal itemsInCart={itemsInCart} setOpenModal={setModalOpen} quantity={quantity} removeFromCart={removeFromCart}/>}
     </div>
   );
 };

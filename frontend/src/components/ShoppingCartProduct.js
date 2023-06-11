@@ -5,16 +5,12 @@ const ShoppingCartProduct = ({item, indexInCart, removeFromCart, updateAmountToP
 
 
     const handleRemoveFromCart =(e) => {
-        removeFromCart(item, indexInCart);
-      }
-    const handleQuantityChange = (e) =>  {
-    item.quantityInCart = e.target.value;
-    // Update total value
-    // this.forceUpdate();
-    updateAmountToPay(item);
+      removeFromCart(item, indexInCart);
     }
-
-    console.log('item', item)
+    const handleQuantityChange = (e) =>  {
+      item.quantityInCart = e.target.value;
+      updateAmountToPay(item);
+    }
 
     return(
         <tr className="items-in-cart">
@@ -24,7 +20,7 @@ const ShoppingCartProduct = ({item, indexInCart, removeFromCart, updateAmountToP
           <td>
             <input type="number" name="quantity" min="1" max="10" onChange={handleQuantityChange} />
           </td>
-          <td>£{item.price * item.quantityInCart}</td>
+          <td>&#36;{item.price * item.quantityInCart}</td>
           <td><button className="fas fa-trash"
                 onClick={handleRemoveFromCart}>
                   <img src="/asset/black-trash.jpeg" alt="trash can"  style={{width: "16px"}}/>
@@ -34,3 +30,4 @@ const ShoppingCartProduct = ({item, indexInCart, removeFromCart, updateAmountToP
 }
 
 export default ShoppingCartProduct
+

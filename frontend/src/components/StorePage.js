@@ -18,8 +18,8 @@ const StorePage = () => {
   };
 
   const addToCart = (item)  => {
-    let cartItem = shoppingProducts.filter(i => i.id == item.id);
-    setItemsCart([...itemsInCart, item.id])
+    let cartItem = shoppingProducts.filter(i => i.id === item.id);
+    setItemsCart([...itemsInCart, item])
     cartItem[0]["inCart"] = true;
     cartItem[0]["quantityInCart"] = 1;
     setQuantity(quantity + 1)
@@ -29,13 +29,14 @@ const StorePage = () => {
   }
 
   const removeFromCart = (item, indexInCart) => {
-    shoppingProducts[item.id].inCart = false;
-    shoppingProducts[item.id].quantityInCart = 0;
+    let cartItem = shoppingProducts.filter(i => i.id === item.id);
+    cartItem[0]["inCart"] = false;
+    cartItem[0]["quantityInCart"] = 0;
     itemsInCart.splice(indexInCart, 1);
     setQuantity(quantity - 1)
-    setAmountToPay(amountToPay - shoppingProducts[item.id].price)
-    setItemsCart([...itemsInCart, item.id])
-    setShoppingProducts([...shoppingProducts]);
+    setAmountToPay(amountToPay - cartItem.price)
+    setItemsCart([...itemsInCart, item])
+    setShoppingProducts([...shoppingProducts, cartItem]);
   }
 
   useEffect(() => {
@@ -52,11 +53,11 @@ const StorePage = () => {
        
     };
     fetchData();
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="home">
-      <Navbar pageTitle={store.name} dataList={shoppingProducts} amountToPay={amountToPay}  quantity={quantity} itemsInCart={itemsInCart} removeFromCart={removeFromCart} />
+      <Navbar pageTitle={store.name} quantity={quantity} itemsInCart={itemsInCart} removeFromCart={removeFromCart} />
       <FlippableCard dataList={shoppingProducts} addToCart={addToCart} isStorePage={true}/>
     </div>
   );

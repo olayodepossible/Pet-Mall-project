@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import "../styles/Modal.css"
 import ShoppingCartProduct from './ShoppingCartProduct';
 
-const Modal = ({quantity, dataList, itemsInCart, removeFromCart, setOpenModal }) => {
-    let totalPrice = 0;
-    const updateAmountToPay = (item) => {
-        console.log('update Amoninttn')       // this.forceUpdate();
+const Modal = ({quantity, itemsInCart, removeFromCart, setOpenModal}) => {
+    
+    const [, updateState] = useState();
+    const handleForceupdateMethod = useCallback(() => updateState({}), []);
+   
+    const updateAmountToPay = () => {
+        handleForceupdateMethod();
     }
 
     let cartItems = itemsInCart.map((item, index) => {
@@ -16,49 +19,47 @@ const Modal = ({quantity, dataList, itemsInCart, removeFromCart, setOpenModal })
                  removeFromCart={removeFromCart}
                  updateAmountToPay={updateAmountToPay} />  
     });
-
-   
-      
-        
+  
     let amountToPay = 0;
-    for (let i=0; i< dataList.length; i++) {
-        amountToPay += dataList[i].price * dataList[i].quantityInCart;
+    for (let i=0; i< itemsInCart.length; i++) {
+        amountToPay += itemsInCart[i].price * itemsInCart[i].quantityInCart;
     }
+    
 
     return (
         <div id="overlay">
-        <section id="shopping-cart">
-            <div id="cart-header">
-            <span id="cart-title">Shopping Cart</span>
-            <span className="modal__CloseBtn1">
-                <button onClick={() => { setOpenModal(false);}}>&times;</button>
-            </span>
-            </div>
-            <table>
-            <thead>
-                <tr>
-                <th>Product</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {cartItems}
-            </tbody>
-            </table>
-            <span id="empty-cart">{(itemsInCart.length == 0) ? "Shopping cart is empty" : ""}</span>
-            <h3 id="cart-total">Cart Total</h3>
-            <div id="totals">
-            <span>Cart Totals</span>
-            <span>Number of items: {quantity}</span>
-            <span>Total: £{amountToPay}</span>
-            </div>
-            <button id="checkout" 
-            disabled={itemsInCart.length == 0 ? true : false} >Checkout</button>
-        </section>
+            <section id="shopping-cart">
+                <div id="cart-header">
+                <span id="cart-title">Shopping Cart</span>
+                <span className="modal__CloseBtn1">
+                    <button onClick={() => { setOpenModal(false);}}>&times;</button>
+                </span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cartItems}
+                    </tbody>
+                </table>
+                <span id="empty-cart">{(itemsInCart.length === 0) ? "Shopping cart is empty" : ""}</span>
+                <h3 id="cart-total">Cart Total</h3>
+                <div id="totals">
+                <span>Cart Totals</span>
+                <span>Number of items: {quantity}</span>
+                <span>Total: &#36;{amountToPay}</span>
+                </div>
+                <button id="checkout" 
+                disabled={itemsInCart.length === 0 ? true : false} >Checkout</button>
+            </section>
         </div>
     )  
       

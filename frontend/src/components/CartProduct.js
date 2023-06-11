@@ -6,9 +6,7 @@ const CartProduct = ({item, indexInCart, removeFromCart, updateAmountToPay}) => 
         removeFromCart(item, indexInCart);
       }
       const handleQuantityChange = (e) => {
-        this.props.item.quantityInCart = e.target.value;
-        // Update total value
-        this.forceUpdate();
+        item.quantityInCart = e.target.value;
         updateAmountToPay(item);
       }
 
