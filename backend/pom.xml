@@ -8,11 +8,13 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<packaging>jar</packaging>
 	<groupId>petmall</groupId>
 	<artifactId>pet-mall</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Online-Pet-Mall-project</name>
 	<description>Online Pet Mall</description>
+
 
 	<properties>
 		<java.version>11</java.version>
@@ -93,6 +95,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<executable>true</executable>
 				</configuration>
 			</plugin>
 		</plugins>
