@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./styles/App.css";
 import { LandingPage } from "./LandingPage";
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./features/user/userSlice";
@@ -26,7 +25,7 @@ function App() {
 
   return (
     <div className="app">
-      {!user ? (
+      {/* {!user ? (
         <LoginPage />
       ) : (
         <Router>
@@ -37,7 +36,15 @@ function App() {
             <Route exact path="/pet-mall/store/:id" element={<StorePage />} />
           </Routes>
         </Router>
-      )}
+      )} */}
+      <Router>
+          <Routes>
+            <Route exact path="/" element={<LandingPage />} />
+            {/* <Route exact path="/pet-mall/profile" element={<UserProfile />} /> */}
+            <Route exact path="/pet-mall/checkout" element={<Payment />} />
+            <Route exact path="/pet-mall/store/:id" element={<StorePage />} />
+          </Routes>
+        </Router>
       <Footer />
     </div>
   );

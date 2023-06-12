@@ -45,7 +45,8 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
         }
        
           <img
-            onClick={() => history("/pet-mall/profile")}
+            onClick={() => history("/")}
+            // onClick={() => history("/pet-mall/profile")}
             className="nav__avatar"
             src="/asset/Netflix-avatar.png"
             alt="avatar"
