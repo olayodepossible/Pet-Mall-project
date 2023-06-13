@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
 
-const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart, isLandingPage=false}) => {
+const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart, isLogin, setIsLogin, isLandingPage=false}) => {
 
   const [show, handleShow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,21 +37,26 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
         </div>
 
         <div>
-        {!isLandingPage &&  
-        <button  onClick={() => {setModalOpen(true);}}  style={{cursor: "pointer"}}>
-          {quantity && <span className="nav__cart__items">{quantity}</span> }
-          <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
-        </button>
-        }
-       
-          <img
-            onClick={() => history("/")}
-            // onClick={() => history("/pet-mall/profile")}
-            className="nav__avatar"
-            src="/asset/Netflix-avatar.png"
-            alt="avatar"
-          />
+          {!isLandingPage &&  
+          <button  onClick={() => {setModalOpen(true);}}  style={{cursor: "pointer"}}>
+            {quantity === 0 ? null : <span className="nav__cart__items">{quantity}</span> }
+            <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
+          </button>
+          }
+        
+          {
+          isLogin ? <button onClick={() => history("/pet-mall/login")} setIsLogin={setIsLogin}>Login</button> :
+            <img
+              onClick={() => history("/pet-mall/profile")}
+              className="nav__avatar"
+              src="/asset/Netflix-avatar.png"
+              alt="avatar"
+            />
+          
+          
+          }
         </div>
+        
       </div>
 
       {modalOpen && <Modal itemsInCart={itemsInCart} setOpenModal={setModalOpen} quantity={quantity} removeFromCart={removeFromCart}/>}

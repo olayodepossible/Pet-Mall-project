@@ -1,20 +1,25 @@
 import React, { useRef } from "react";
 import "../styles/SignUpPage.css";
-import { fireStoreSignIn, fireStoreSignUp } from "../firebase";
+import { useNavigate } from "react-router-dom";
+// import { fireStoreSignIn, fireStoreSignUp } from "../firebase";
 
-const SignUpPage = () => {
+const SignUpPage = ({setIsLogin}) => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const history = useNavigate();
 
   const register = (e) => {
     e.preventDefault();
-    fireStoreSignUp(emailRef.current.value, passwordRef.current.value);
+    setIsLogin(true)
+    history("/")
+    // fireStoreSignUp(emailRef.current.value, passwordRef.current.value);
   };
 
   const signin = (e) => {
     e.preventDefault();
-    console.log("CLIKED");
-    fireStoreSignIn(emailRef.current.value, passwordRef.current.value);
+    setIsLogin(true)
+    history("/")
+    // fireStoreSignIn(emailRef.current.value, passwordRef.current.value);
   };
   return (
     <div className="signupPage">
@@ -27,7 +32,7 @@ const SignUpPage = () => {
         </button>
 
         <h4>
-          <span className="signupPage__gray">New to Netflix? </span>
+          <span className="signupPage__gray">New here? </span>
           <span className="signupPage__link" onClick={register}>
             Sign Up now.
           </span>

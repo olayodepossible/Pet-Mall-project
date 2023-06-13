@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react'
 import "../styles/Modal.css"
 import ShoppingCartProduct from './ShoppingCartProduct';
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({quantity, itemsInCart, removeFromCart, setOpenModal}) => {
-    
+    const history = useNavigate();
     const [, updateState] = useState();
     const handleForceupdateMethod = useCallback(() => updateState({}), []);
    
@@ -57,7 +58,7 @@ const Modal = ({quantity, itemsInCart, removeFromCart, setOpenModal}) => {
                 <span>Number of items: {quantity}</span>
                 <span>Total: &#36;{amountToPay}</span>
                 </div>
-                <button id="checkout" 
+                <button id="checkout"  onClick={() => history("/pet-mall/checkout")}
                 disabled={itemsInCart.length === 0 ? true : false} >Checkout</button>
             </section>
         </div>

@@ -1,14 +1,14 @@
 export const product = [
   {
-    plan: "Basic Plan",
+    plan: "Cage",
     amount: "$10",
   },
   {
-    plan: "Standard Plan",
+    plan: "Fodder",
     amount: "$20",
   },
   {
-    plan: "Premimum Plan",
+    plan: "Fish Net",
     amount: "$30",
   },
 ];
