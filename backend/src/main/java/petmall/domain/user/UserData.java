@@ -16,6 +16,7 @@ public class UserData {
     String address;
     String city;
     String country;
+    String profileImage;
     @JsonIgnore
     String privilege;
     @JsonIgnore

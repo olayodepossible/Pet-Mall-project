@@ -1,31 +1,31 @@
 
 -- USER --
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("customer", 1, "Joe204", "Joe", "Mark", "joe@gmail.com", "12345", "22, MacLaure Street", "LA", "USA", "ROLE_USER", "CUSTOMER", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("customer", 1, "Joe204", "Joe", "Mark", "joe@gmail.com", "12345", "22, MacLaure Street", "LA", "USA", "ROLE_USER", "CUSTOMER", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("customer", 2, "Doe204", "Doe", "Park", "doe@gmail.com", "12345", "25, MacLaure Street", "Atlanta", "USA", "ROLE_USER", "CUSTOMER", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("customer", 2, "Doe204", "Doe", "Park", "doe@gmail.com", "12345", "25, MacLaure Street", "Atlanta", "USA", "ROLE_USER", "CUSTOMER", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("customer", 3, "Toe204", "Toe", "Clark", "toe@gmail.com", "12345", "32, MacLaure Street", "CA", "USA", "ROLE_USER", "CUSTOMER", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("customer", 3, "Toe204", "Toe", "Clark", "toe@gmail.com", "12345", "32, MacLaure Street", "CA", "USA", "ROLE_USER", "CUSTOMER", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("customer", 4, "Zoe204", "Zoe", "Jark", "zoe@gmail.com", "12345", "52, MacLaure Street", "LA", "USA", "ROLE_USER", "CUSTOMER", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("customer", 4, "Zoe204", "Zoe", "Jark", "zoe@gmail.com", "12345", "52, MacLaure Street", "LA", "USA", "ROLE_USER", "CUSTOMER", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("vet", 5, "Coe204", "Coe", "Blark", "coe@gmail.com", "12345", "3, Plane Street", "CA", "USA", "ROLE_VET_ADMIN", "VET", "Dentistry");
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("vet", 5, "Coe204", "Coe", "Blark", "coe@gmail.com", "12345", "3, Plane Street", "CA", "USA", "ROLE_VET_ADMIN", "VET", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", "Dentistry");
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("vet", 6, "Boe20", "Boe", "Park", "boe@gmail.com", "12345", "5, Laure Street", "Texas", "USA", "ROLE_VET_ADMIN", "VET", "Doctor");
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("vet", 6, "Boe20", "Boe", "Park", "boe@gmail.com", "12345", "5, Laure Street", "Texas", "USA", "ROLE_VET_ADMIN", "VET", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", "Doctor");
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("store_owner", 7, "Paul204", "Paul", "Clark", "paul@gmail.com", "12345", "32, MacLaure Street", "CA", "USA", "ROLE_STORE_ADMIN", "STORE_OWNER", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("store_owner", 7, "Paul204", "Paul", "Clark", "paul@gmail.com", "12345", "32, MacLaure Street", "CA", "USA", "ROLE_STORE_ADMIN", "STORE_OWNER", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("store_owner", 8, "Peter204", "Peter", "Jark", "peter@gmail.com", "12345", "52, MacLaure Street", "LA", "USA", "ROLE_STORE_ADMIN", "STORE_OWNER", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("store_owner", 8, "Peter204", "Peter", "Jark", "peter@gmail.com", "12345", "52, MacLaure Street", "LA", "USA", "ROLE_STORE_ADMIN", "STORE_OWNER", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
-INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, speciality)
-VALUES ("admin", 9, "Pete204", "Pete", "Klark", "pete@gmail.com", "12345", "52, MacLaure Street", "LA", "USA", "ROLE_ADMIN", "ADMIN", null);
+INSERT IGNORE INTO users (user_type, id, username, first_name, last_name, email, password, address, city, country, privilege, designation, profile_image, speciality)
+VALUES ("admin", 9, "Pete204", "Pete", "Klark", "pete@gmail.com", "12345", "52, MacLaure Street", "LA", "USA", "ROLE_ADMIN", "ADMIN", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDM2ODA0NA&ixlib=rb-1.2.1&q=85", null);
 
 -- PET --
 

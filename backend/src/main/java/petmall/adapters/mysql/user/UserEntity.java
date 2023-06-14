@@ -31,12 +31,13 @@ public class UserEntity {
     private String country;
     private String privilege;
     private String designation;
+    private String profileImage;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<PetEntity> pets;
 
 
     public UserData asUser(){
-        return new UserData(id, username, firstName, lastName, email,address, city, country, privilege, pets);
+        return new UserData(id, username, firstName, lastName, email,address, city, country, profileImage, privilege, pets);
     }
 
 }

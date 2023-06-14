@@ -48,8 +48,8 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     private ApiInfo getApiInfo() {
 
         return new ApiInfoBuilder()
-                .title("Swagger API Doc")
-                .description("More description about the API")
+                .title("Pet-Mall API Doc")
+                .description("Pet-Mall API is service that provides easy access to Pet and its accessories.")
                 .version("1.0.0")
                 .build();
     }

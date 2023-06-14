@@ -27,6 +27,7 @@ public class UserService {
         user.setAddress(payload.getAddress());
         user.setCity(payload.getCity());
         user.setCountry(payload.getCountry());
+        user.setProfileImage(payload.getProfileImage());
         return userRepository.save(user).asUser();
     }
 

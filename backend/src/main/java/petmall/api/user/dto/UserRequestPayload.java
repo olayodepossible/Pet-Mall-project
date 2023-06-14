@@ -26,6 +26,7 @@ public class UserRequestPayload {
     String address;
     String city;
     String country;
+    String profileImage;
 
 
 
