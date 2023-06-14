@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useRef} from "react";
 import "../styles/LoginPage.css";
 import SignUpPage from "./SignUpPage";
+import UserLoginPage from "./UserLoginPage";
 
 const LoginPage = ({setIsLogin}) => {
+
   const [signin, setSignIn] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const emailRef = useRef(null);
+
+  const handleShowLogin = (e) => {
+    e.preventDefault(); 
+    setShowLogin(true)
+  }
+
+  const handleShowSign = (e) => {
+    e.preventDefault(); 
+    setSignIn(!signin)
+    setShowLogin(true)
+  }
 
   return (
     <div className="login">
@@ -17,8 +33,8 @@ const LoginPage = ({setIsLogin}) => {
             />
           </div>
           <div>
-            <button className="login__button" onClick={() => setSignIn(true)}>
-              Sign In
+            <button className="login__button" onClick={handleShowSign }>
+              {signin ? "Login" :"Sign Up"}
             </button>
           </div>
           
@@ -30,16 +46,17 @@ const LoginPage = ({setIsLogin}) => {
           <SignUpPage  setIsLogin={setIsLogin}/>
         ) : (
           <>
-            <h1>Enjoy Unlimited access to a better pet care...</h1>
+              <h1 style={{display: `${showLogin ? 'none': ""}`}}>Enjoy Unlimited Access to a better Pet care...</h1>
+              <div className="login__input" style={{display: `${showLogin ? 'none': ""}`}}>
+                <form>
+                  <input type="email" placeholder="Email Address" ref={emailRef}/>
+                  <button className="login__getStarted" onClick={handleShowLogin}>
+                    GET STARTED
+                  </button>
+                </form>
+              </div>
+            {showLogin ? <UserLoginPage setIsLogin={setIsLogin} setShowLogin={setShowLogin} setSignIn={setSignIn} setEmail={emailRef?.current?.value ? emailRef.current.value : ""}/> : null}
 
-            <div className="login__input">
-              <form>
-                <input type="email" placeholder="Email Address" />
-                <button className="login__getStarted" onClick={() => setSignIn(true)}>
-                  GET STARTED
-                </button>
-              </form>
-            </div>
           </>
         )}
       </div>

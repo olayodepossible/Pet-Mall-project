@@ -10,12 +10,14 @@ import Payment from "./components/Payment";
 import Footer from "./components/Footer";
 import StorePage from "./components/StorePage";
 import LoginPage from "./components/LoginPage"
+import UserPage from "./components/UserPage";
+import SignUpPage from "./components/SignUpPage";
+import UserLoginPage from "./components/UserLoginPage";
 
 function App() {
   const user = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   const[isLogin, setIsLogin] = useState(false)
-  console.log('isLogin', isLogin)
   
 
   useEffect(() => {
@@ -31,9 +33,11 @@ function App() {
     
         <Router>
           <Routes>
-          <Route exact path="/pet-mal/login" element={<LoginPage setIsLogin={setIsLogin}/>}/>
             <Route exact path="/" element={<LandingPage  setIsLogin={setIsLogin} isLogin={isLogin}/>} />
-            <Route exact path="/pet-mall/profile" element={<UserProfile isLogin={isLogin} setIsLogin={setIsLogin}/>} />
+            <Route exact path="/pet-mall/login" element={<LoginPage setIsLogin={setIsLogin}/>}/>
+            <Route exact path="/pet-mall/login-page" element={<UserLoginPage setIsLogin={setIsLogin}/>}/>
+            <Route exact path="/pet-mall/signup" element={<SignUpPage setIsLogin={setIsLogin}/>}/>
+            <Route exact path="/pet-mall/profile" element={<UserPage isLogin={isLogin} setIsLogin={setIsLogin}/>} />
             <Route exact path="/pet-mall/checkout" element={<Payment isLogin={isLogin}/>} />
             <Route exact path="/pet-mall/store/:id" element={<StorePage isLogin={isLogin}/>} />
           </Routes>

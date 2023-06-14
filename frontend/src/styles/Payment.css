@@ -30,11 +30,6 @@
   padding: 0 10px;
 }
 
-.payment__group {
-  width: 100%;
-  padding: 5px 10px;
-}
-
 .payment__group > label {
   color: #8898aa;
   height: 40px;
@@ -43,7 +38,7 @@
 
 .payment__field {
   display: block;
-  width: 90%;
+  width: 100%;
   background-color: white;
   box-shadow: 0 7px 14px 0 rgba(49, 49, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.08);
   border-radius: 4px;
@@ -117,27 +112,25 @@
   color: #cfd7e0;
 }
 
-.payment__body .payment__payNow {
+.payment__payNow {
   float: left;
   display: block;
   background-color: #666ee8;
   color: white;
   border-radius: 4px;
   border: 0;
-  margin: 20px 0px 100px 9px;
+  margin: 20px 0px 90px 0px;
   font-size: 15px;
   font-weight: 400;
   width: 100%;
   height: 40px;
   line-height: 38px;
   outline: none;
+  padding: -6px;
 }
 
-.payment__body button:focus {
+.payment__payNow:focus {
   background-color: #555abf;
 }
 
-.payment__body button:active {
-  background-color: #43458b;
-}
 

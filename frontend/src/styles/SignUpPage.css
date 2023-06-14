@@ -1,8 +1,11 @@
 .signupPage {
-  max-width: 300px;
-  padding: 70px;
-  margin: -100px auto;
+  max-width: 500px;
+  padding: 30px 20px;
+  margin: -250px auto;
   background-color: rgba(0, 0, 0, 0.85);
+}
+.login__container {
+  margin: -100px auto;
 }
 
 .signupPage > form {
@@ -14,7 +17,7 @@
   margin-bottom: 20px;
 }
 
-.signupPage > form > input {
+.signupPage > form > input, select {
   outline-width: 0;
   height: 40px;
   margin-bottom: 14px;

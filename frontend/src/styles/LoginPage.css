@@ -66,17 +66,18 @@
 .login__input > form > input {
   padding: 10px;
   outline-width: 0;
-  height: 30px;
+  height: 63px;
   width: 30%;
   max-width: 600px;
   border: none;
 }
 
 .login__getStarted {
-  padding: 16px 20px;
+  padding: 22px 20px;
   font-size: 1rem;
   color: #fff;
   background-color: #e50914;
   border: none;
   cursor: pointer;
+  height: 65px;
 }

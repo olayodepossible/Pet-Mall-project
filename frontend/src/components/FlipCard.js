@@ -1,11 +1,11 @@
 import "../styles/Card.css";
 import { useNavigate } from "react-router-dom";
 
-const FlipCard = ({ pet, btnAction, addToCart, isStorePage, inCart}) => {
+const FlipCard = ({ pet, btnAction, addToCart, isStorePage, isLogin}) => {
   const history = useNavigate();
 
   const handleAddToCart = (e) => {
-    addToCart(pet);
+    isLogin ? addToCart(pet) : history("/pet-mal/login")
   }
 
 
@@ -22,9 +22,9 @@ const FlipCard = ({ pet, btnAction, addToCart, isStorePage, inCart}) => {
               <h3>{pet.name?.length ? pet.name.substr(0, 12 - 1) + "..." : pet.name}</h3>
               <span>£ {pet.price}</span>
               <button onClick={handleAddToCart}
-                disabled={inCart}
-                className={inCart ? "button-disabled" : ""}>
-                {inCart ? "Item in a cart" : "Add to cart"}
+                disabled={pet.inCart}
+                className={pet.inCart ? "button-disabled" : ""}>
+                {pet.inCart ? "Item in a cart" : "Add to cart"}
               </button>
             </div>
           </div>}

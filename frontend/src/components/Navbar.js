@@ -12,6 +12,8 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
     window.scrollY > 100 ? handleShow(true) : handleShow(false);
   };
 
+  console.log('isLogin - Nav', isLogin)
+
   const history = useNavigate();
 
   useEffect(() => {
@@ -37,7 +39,7 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
         </div>
 
         <div>
-          {!isLandingPage &&  
+          {!isLandingPage && isLogin &&  
           <button  onClick={() => {setModalOpen(true);}}  style={{cursor: "pointer"}}>
             {quantity === 0 ? null : <span className="nav__cart__items">{quantity}</span> }
             <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
@@ -45,15 +47,13 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
           }
         
           {
-          isLogin ? <button onClick={() => history("/pet-mall/login")} setIsLogin={setIsLogin}>Login</button> :
+          !isLogin ? <button onClick={() => history("/pet-mall/login")}>Login</button> :
             <img
               onClick={() => history("/pet-mall/profile")}
               className="nav__avatar"
               src="/asset/Netflix-avatar.png"
               alt="avatar"
             />
-          
-          
           }
         </div>
         

@@ -27,21 +27,18 @@ public class UserController {
         return new ResponseEntity<>(userService.createUser(payload), HttpStatus.CREATED);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<> loginUser(){
-//
-//    }
+    @PostMapping("/login")
+    public ResponseEntity<UserEntity>  loginUser( @RequestBody UserRequestPayload payload){
+        return new ResponseEntity<>(userService.loginUser(payload), HttpStatus.OK);
+    }
 
     @GetMapping("/")
     public ResponseEntity<List<UserData>> getUsers(){
-        log.info("All User");
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
-
     }
 
     @GetMapping("/user_id")
     public ResponseEntity<UserEntity> getUser(@RequestParam long id){
-        log.info("Id:: {}", id);
         return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
     }
 }

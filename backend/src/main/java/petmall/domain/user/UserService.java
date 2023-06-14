@@ -40,4 +40,7 @@ public class UserService {
                  .orElseThrow( () -> new DataNotFoundException(String.format("User with Id: %d not found", id )));
     }
 
+    public UserEntity loginUser(UserRequestPayload payload) {
+        return userRepository.findByUsername(payload.getUsername()).orElseThrow( () -> new DataNotFoundException("User with Id: %d not found" ));
+    }
 }

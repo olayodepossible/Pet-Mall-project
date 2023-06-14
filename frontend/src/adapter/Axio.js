@@ -29,6 +29,9 @@ export const getData = (url) => {
   return axiosInstance.get(`${url}`);
 };
 
+export const postPetMallData = (url, requestData) => {
+  return axiosInstance2.post(`${url}`, requestData);
+};
 export const postData = (url, requestData) => {
   return axiosInstance.post(`${url}`, requestData);
 };
