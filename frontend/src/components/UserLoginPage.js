@@ -16,10 +16,17 @@ const UserLoginPage = ({setSignIn, setShowLogin, setEmail = "", setIsLogin}) => 
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const resp = await postPetMallData(`users/login`, {"username": emailRef.current.value, "password": passwordRef.current.value});
-    dispatch(signUpData(resp.data))
-    setIsLogin(true)
-    history("/pet-mall/profile")
+    try {
+      const resp = await postPetMallData(`users/login`, {"username": emailRef.current.value, "password": passwordRef.current.value});
+      dispatch(signUpData(resp.data))
+      setIsLogin(true)
+      history("/pet-mall/profile")
+      
+    } catch (error) {
+      console.log('error', error)
+      history("/pet-mall/login")
+    }
+    
   };
   
 

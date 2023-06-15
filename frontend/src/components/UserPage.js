@@ -46,14 +46,14 @@ const UserPage = ({setIsLogin}) => {
 
     const handleLogout = () => {
         setIsLogin(false);
-        history("/")
+        history("/pet-mall")
     };
 
   return (
     <>
         <div>
           <img
-            onClick={() => history("/")}
+            onClick={() => history("/pet-mall")}
             className="nav__logo"
             src="/pet-mall-logo.jpg"
             alt="logo"

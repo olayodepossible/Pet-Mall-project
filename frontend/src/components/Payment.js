@@ -2,14 +2,14 @@ import React from "react";
 import "../styles/Payment.css";
 import { useNavigate } from "react-router-dom";
 
-const Payment = () => {
+const Payment = ({user}) => {
   const history = useNavigate();
 
   return (
     <div className="payment__container">
       <div>
           <img
-            onClick={() => history("/")}
+            onClick={(e) => {e.preventDefault(); return history("/pet-mall")}}
             className="nav__logo"
             src="/pet-mall-logo.jpg"
             alt="logo"
@@ -29,26 +29,26 @@ const Payment = () => {
         </div>
 
         <div className="payment__form">
-          <form onSubmit={() => history("/")}>
+          <form onSubmit={(e) => { e.preventDefault(); return history("/pet-mall")}}>
             <div className="payment__group">
               <label>First name</label>
-              <input id="first-name" name="first-name" className="payment__field" placeholder="First Name" />
+              <input id="first-name" name="first-name" className="payment__field" placeholder="First Name" defaultValue={user.firstName} />
             </div>
             <div className="payment__group">
               <label>Last name</label>
-              <input id="last-name" name="last-name" className="payment__field" placeholder="Last Name" />
+              <input id="last-name" name="last-name" className="payment__field" placeholder="Last Name" defaultValue={user.lastName }  />
             </div>
             <div className="payment__group">
               <label>Address</label>
-              <input id="address-line1" name="address_line1" className="payment__field" placeholder="Address" />
+              <input id="address-line1" name="address_line1" className="payment__field" placeholder="Address" defaultValue={user.address }  />
             </div>
             <div className="payment__group">
               <label>City</label>
-              <input id="address-city" name="address_city" className="payment__field" placeholder="City" />
+              <input id="address-city" name="address_city" className="payment__field" placeholder="City"  defaultValue={user.city } />
             </div>
             <div className="payment__group">
-              <label>State</label>
-              <input id="address-state" name="address_state" className="payment__field" placeholder="State" />
+              <label>Country</label>
+              <input id="address-state" name="address_state" className="payment__field" placeholder="State" defaultValue={user.country }  />
             </div>
             <div className="payment__group">
               <label>Card</label>
@@ -61,17 +61,6 @@ const Payment = () => {
             <div className="payment__group">
               <label>ZIP</label>
               <input id="address-zip" name="address_zip" className="payment__field" placeholder="ZIP Code" />
-            </div>
-            <div className="payment__group ">
-              <label>Country</label>
-              <div className="payment__group__select">
-                <select name="slct" id="slct">
-                  <option>Select Country</option>
-                  <option value="1">USA</option>
-                  <option value="2">England</option>
-                  <option value="3">Kenya</option>
-                </select>
-              </div>
             </div>
               <button className="payment__payNow" type="submit">
                 Pay Now

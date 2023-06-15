@@ -39,10 +39,15 @@ const SignUpPage = ({showLogin, setShowLogin, setEmail, setIsLogin}) => {
       "username": usernameRef.current.value
     }
     
-    const resp = await postPetMallData(`users/register`, data);
-    dispatch(signUpData(resp.data)) 
-    setIsLogin(true)
-    history("/pet-mall/profile")
+    try {
+      const resp = await postPetMallData(`users/register`, data);
+      dispatch(signUpData(resp.data)) 
+      setIsLogin(true)
+      history("/pet-mall/profile")
+    } catch (error) {
+      console.log('error', error)
+      history("/pet-mall/signup")
+    }
   };
 
   

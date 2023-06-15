@@ -62,7 +62,7 @@ const FlipCard = ({ pet, btnAction, addToCart, isStorePage, isLogin}) => {
             
 
           </div>
-          {!isStorePage && <button  onClick={() => history(`/pet-mall/store/${pet.ownerId}`) } className="card__button">{btnAction}</button> }
+          {!isStorePage && <button  onClick={(e) => { e.preventDefault(); return  history(`/pet-mall/store/${pet.ownerId}`) }} className="card__button">{btnAction}</button> }
           
         </div>
       </div>

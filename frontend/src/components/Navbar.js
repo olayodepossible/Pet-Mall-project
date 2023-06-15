@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
 
-const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart, isLogin, setIsLogin, isLandingPage=false}) => {
+const Navbar = ({user, pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart, isLogin, setIsLogin, isLandingPage=false}) => {
 
   const [show, handleShow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,9 +24,9 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
   return (
     <div className={`nav ${isLandingPage ? show && "nav__black" : "nav__black" }`}>
       <div className="nav__contents">
-        <div>
+        <div >
           <img
-            onClick={() => history("/")}
+            onClick={(e) => { e.preventDefault(); return history("/pet-mall")}}
             className="nav__logo"
             src="/pet-mall-logo.jpg"
             alt="logo"
@@ -37,23 +37,39 @@ const Navbar = ({pageTitle, quantity, itemsInCart, removeFromCart, setItemsCart,
             <span className="nav__page__title">{!isLandingPage && pageTitle }</span>
           </p>
         </div>
+       
 
-        <div>
+        <div className="nav__contents" style={{columnGap: "45px"}}>
+          <div>
+            <button onClick={(e) => { e.preventDefault(); return history("/pet-mall/about")}}  style={{ display: "inline-block", padding: "5px 15px", cursor: "pointer"}}>About</button>
+          </div>
           {!isLandingPage && isLogin &&  
-          <button  onClick={() => {setModalOpen(true);}}  style={{cursor: "pointer"}}>
-            {quantity === 0 ? null : <span className="nav__cart__items">{quantity}</span> }
-            <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
-          </button>
+            <>
+            <div>
+            <button onClick={(e) => { e.preventDefault(); return history("/pet-mall/store/vets")}}  style={{ display: "inline-block", padding: "5px 15px", cursor: "pointer"}}>{ user.privilege === "ROLE_STORE_ADMIN" ? "Add Vet" : "View Vet"}</button>
+            </div>
+           
+            
+            { quantity === 0 ? null : <div>
+              <button  onClick={(e) => { e.preventDefault(); return setModalOpen(!modalOpen)}}  style={{cursor: "pointer", display: "inline-block"}}>
+                <span className="nav__cart__items">{quantity}</span> 
+                <img className="nav__cart__img" src="/asset/cart_img.png" alt="cart"/>
+              </button>
+            </div>}
+            </>
           }
+          
         
           {
-          !isLogin ? <button onClick={() => history("/pet-mall/login")}>Login</button> :
-            <img
-              onClick={() => history("/pet-mall/profile")}
-              className="nav__avatar"
-              src="/asset/Netflix-avatar.png"
-              alt="avatar"
-            />
+          !isLogin ? <div><button onClick={(e) => { e.preventDefault(); return history("/pet-mall/login")}}  style={{ display: "inline-block", padding: "5px 15px", cursor: "pointer"}}>Login</button> </div> :
+           <div>
+              <img
+                  onClick={() => history("/pet-mall/profile")}
+                  className="nav__avatar"
+                  src="/asset/Netflix-avatar.png"
+                  alt="avatar"
+                />
+            </div>
           }
         </div>
         

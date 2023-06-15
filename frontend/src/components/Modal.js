@@ -58,7 +58,7 @@ const Modal = ({quantity, itemsInCart, removeFromCart, setOpenModal}) => {
                 <span>Number of items: {quantity}</span>
                 <span>Total: &#36;{amountToPay}</span>
                 </div>
-                <button id="checkout"  onClick={() => history("/pet-mall/checkout")}
+                <button id="checkout"  onClick={() =>  history("/pet-mall/checkout")}
                 disabled={itemsInCart.length === 0 ? true : false} >Checkout</button>
             </section>
         </div>

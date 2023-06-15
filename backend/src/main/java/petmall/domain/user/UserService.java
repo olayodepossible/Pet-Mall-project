@@ -36,11 +36,25 @@ public class UserService {
     }
 
     public UserEntity getUser(long id) {
-         return  userRepository.findById(id)
+         UserEntity user =  userRepository.findById(id)
                  .orElseThrow( () -> new DataNotFoundException(String.format("User with Id: %d not found", id )));
+        if (user.getPrivilege().equals("ROLE_STORE_ADMIN")) {
+            return UserEntity.builder().email(user.getEmail()).address(user.getAddress()).city(user.getCity())
+                    .firstName(user.getFirstName()).lastName(user.getLastName()).privilege(user.getPrivilege())
+                    .profileImage(user.getProfileImage()).designation(user.getDesignation()).username(user.getUsername())
+                    .country(user.getCountry()).build();
+        }
+        return user;
     }
 
     public UserEntity loginUser(UserRequestPayload payload) {
-        return userRepository.findByUsername(payload.getUsername()).orElseThrow( () -> new DataNotFoundException("User with Id: %d not found" ));
+        UserEntity user =  userRepository.findByUsername(payload.getUsername()).orElseThrow( () -> new DataNotFoundException("User with Id: %d not found" ));
+        if (user.getPrivilege().equals("ROLE_STORE_ADMIN")) {
+            return UserEntity.builder().email(user.getEmail()).address(user.getAddress()).city(user.getCity())
+                    .firstName(user.getFirstName()).lastName(user.getLastName()).privilege(user.getPrivilege())
+                    .profileImage(user.getProfileImage()).designation(user.getDesignation()).username(user.getUsername())
+                    .country(user.getCountry()).build();
+        }
+        return user;
     }
 }

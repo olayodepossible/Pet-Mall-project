@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import FlippableCard from "./FlippableCards";
 import { getPetMallData } from "../adapter/Axio";
 
-const StorePage = ({isLogin}) => {
+const StorePage = ({isLogin, user}) => {
   let params = useParams();
   const [store, setStore] = useState({});
   const [cartItems, setCartItems] = useState([]);
@@ -57,7 +57,8 @@ const StorePage = ({isLogin}) => {
 
   return (
     <div className="home">
-      <Navbar pageTitle={store.name} quantity={quantity} itemsInCart={itemsInCart} removeFromCart={removeFromCart} />
+      <Navbar user={user} pageTitle={store.name} quantity={quantity} itemsInCart={itemsInCart} removeFromCart={removeFromCart} isLogin={isLogin} />
+      
       <FlippableCard dataList={shoppingProducts} addToCart={addToCart} isStorePage={true} isLogin={isLogin}/>
     </div>
   );

@@ -127,6 +127,7 @@
   line-height: 38px;
   outline: none;
   padding: -6px;
+  cursor: pointer;
 }
 
 .payment__payNow:focus {
