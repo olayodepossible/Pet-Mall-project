@@ -5,8 +5,8 @@ spring:
 #      data-locations: classpath:data.sql
   datasource:
     url: jdbc:mysql://localhost:3306/petmall?allowPublicKeyRetrieval=true&useSSL=true&serverTimezone=UTC
-    username: root
-    password: ${password}
+    username: user
+    password: Passw0rd
 
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
   jpa:
