@@ -1,10 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import { auth } from "../firebase";
 import "../styles/UserProfile.css";
 import { product } from "../features/ProductData";
-// import { signOut } from "firebase/auth";
 
 const UserProfile = ({setIsLogin}) => {
   const user = useSelector((state) => state.user.data);
