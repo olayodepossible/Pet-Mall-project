@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import "./styles/LandingPage.css";
 import Navbar from "./components/Navbar";
 import TrendingPet from "./components/TrendingPet";
-import requests from "./adapter/RequestEndpoints";
 import CarouselSlider from "./components/CarouselSlider";
 import FlippableCard from "./components/FlippableCards";
 

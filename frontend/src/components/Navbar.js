@@ -12,8 +12,6 @@ const Navbar = ({user, pageTitle, quantity, itemsInCart, removeFromCart, setItem
     window.scrollY > 100 ? handleShow(true) : handleShow(false);
   };
 
-  console.log('isLogin - Nav', isLogin)
-
   const history = useNavigate();
 
   useEffect(() => {
