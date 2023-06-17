@@ -19,7 +19,7 @@ const TrendingPet = ({ title }) => {
     };
 
     fetchData();
-  }, [fetchUrl]);
+  }, []);
 
   return (
     <div className="TrendingPet">
