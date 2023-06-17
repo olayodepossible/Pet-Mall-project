@@ -7,14 +7,16 @@ h3 {
 h1.lg-heading,
 h2.lg-heading,
 h3.lg-heading {
-  font-size: 4rem;
+  font-size: 1.5rem;
+  margin-top: 10px;
 }
 h1.sm-heading,
 h2.sm-heading,
 h3.sm-heading {
-  margin-bottom: 2rem;
-  padding: 0.2rem 1rem;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.5rem;
   background: rgba(73, 73, 73, 0.5);
+  font-size: 18px;
 }
 
 a {
@@ -28,18 +30,18 @@ a {
 }
 
 main {
-  padding: 4rem;
+  padding: 1rem;
   min-height: calc(100vh - 150px);
 }
 main .icon {
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 main .icon a {
-  padding: 0.5rem;
+  padding: 0.2rem;
 }
 main .icon img {
   cursor: pointer;
-  height: 30px;
+  height: 20px;
 }
 main .icon a:hover {
   color: #eece1a;
@@ -47,4 +49,57 @@ main .icon a:hover {
 }
 main#home {
   overflow: hidden;
+}
+
+.nav__title{
+  margin: 12px 0 0 65px;
+}
+
+.profile-wrapper{
+  width: 90vw;
+}
+
+.about__story{
+  line-height: 25px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  h1.lg-heading,
+  h2.lg-heading,
+  h3.lg-heading {
+    font-size: 4rem;
+  }
+
+  h1.sm-heading,
+  h2.sm-heading,
+  h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    font-size: unset;
+  }
+  .nav__title{
+    margin: 18px 0 0 100px;
+  }
+
+  .profile-wrapper{
+    width: 70vw;
+  }
+  main {
+    padding: 4rem;
+  }
+
+  main .icon img {
+    height: 30px;
+  }
+
+  main .icon {
+    margin-top: 1rem;
+  }
+  main .icon a {
+    padding: 0.5rem;
+  }
 }

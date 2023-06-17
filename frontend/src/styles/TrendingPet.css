@@ -1,13 +1,16 @@
-.TrendingPet {
+.trending__pet {
   color: #111;
   margin-left: 20px;
+}
+.trending__pet h2{
+  font-size: 1rem;
 }
 
 .row__posters {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 20px;
+  padding: 10px 20px;
   scrollbar-width: none; /* for firefox */
 }
 
@@ -35,4 +38,15 @@
 .row__posterLarge:hover {
   transform: scale(1.09);
   opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .row__posters {
+    padding: 20px;
+  }
+
+  .trending__pet h2{
+    font-size: unset;
+  }
+
 }

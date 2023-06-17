@@ -37,7 +37,7 @@ const Navbar = ({user, pageTitle, quantity, itemsInCart, removeFromCart, setItem
         </div>
        
 
-        <div className="nav__contents" style={{columnGap: "45px"}}>
+        <div className="nav__contents nav__contents2" >
           <div>
             <button onClick={(e) => { e.preventDefault(); return history("/pet-mall/about")}}  style={{ display: "inline-block", padding: "5px 15px", cursor: "pointer"}}>About</button>
           </div>
@@ -59,7 +59,7 @@ const Navbar = ({user, pageTitle, quantity, itemsInCart, removeFromCart, setItem
           
         
           {
-          !isLogin ? <div><button onClick={(e) => { e.preventDefault(); return history("/pet-mall/login")}}  style={{ display: "inline-block", padding: "5px 15px", cursor: "pointer"}}>Login</button> </div> :
+          !isLogin ? <div><button onClick={(e) => { e.preventDefault(); return history("/")}}  style={{ display: "inline-block", padding: "5px 15px", cursor: "pointer"}}>Login</button> </div> :
            <div>
               <img
                   onClick={() => history("/pet-mall/profile")}

@@ -1,40 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import { getData, getPetMallData } from "../adapter/Axio";
-import { useDispatch } from "react-redux";
-import { petData } from "../features/pet/petSlice";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const CarouselSlider = () => {
-  const [petImages, setPetImages] = useState([]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const fetchData = async () => {
-
-      try {
-        const req = await getData("/bulldog/images");
-        const pet = req.data.message.slice(0, 11);
-        setPetImages([...pet]);
-        const petResp = await getPetMallData("/pets/store");
-        dispatch(petData(petResp.data));
-        return req;
-        
-      } catch (error) {
-        console.error('Error:', error);
-        return;
-      }
-      
-    };
-    fetchData();
-  }, []);
+const CarouselSlider = ({sliderData}) => {
+  
 
   return (
     <>
     {
-      petImages.length !== 0 ? 
+      sliderData.length !== 0 ? 
       <Carousel autoPlay infiniteLoop={true}>
-      {petImages?.map((imageUrl, i) => (
+      {sliderData?.map((imageUrl, i) => (
         <div style={styles.carosel_container} key={i}>
           <img style={styles.carosel__image} src={imageUrl} alt="pet" />
         </div>

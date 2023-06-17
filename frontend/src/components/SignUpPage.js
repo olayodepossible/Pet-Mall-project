@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { postPetMallData } from "../adapter/Axio";
 import { signUpData } from "../features/user/userSlice";
 
-const SignUpPage = ({showLogin, setShowLogin, setEmail, setIsLogin}) => {
+const SignUpPage = ({signup, showLogin, setShowLogin, setSignUp, setIsLogin}) => {
   const dispatch = useDispatch();
 
   const emailRef = useRef(null);
@@ -73,8 +73,11 @@ const SignUpPage = ({showLogin, setShowLogin, setEmail, setIsLogin}) => {
 
   return (
     <div className="signupPage">
+      
+      <button className="removeSignUp" onClick={(e) => { e.preventDefault(); return setSignUp(!signup)}}>&times;</button>
+
       <form>
-        <h1>Sign In</h1>
+        <h1>Sign Up </h1>
         <input type="text" placeholder="Username" ref={usernameRef} />
         <input type="text" placeholder="First Name" ref={firstNameRef} />
         <input type="text" placeholder="Last Name" ref={lastNameRef} />

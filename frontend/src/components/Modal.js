@@ -31,10 +31,10 @@ const Modal = ({quantity, itemsInCart, removeFromCart, setOpenModal}) => {
         <div id="overlay">
             <section id="shopping-cart">
                 <div id="cart-header">
-                <span id="cart-title">Shopping Cart</span>
-                <span className="modal__CloseBtn1">
-                    <button onClick={() => { setOpenModal(false);}}>&times;</button>
-                </span>
+                    <span id="cart-title">Shopping Cart</span>
+                    <span className="modal__CloseBtn1">
+                        <button onClick={() => { setOpenModal(false);}}>&times;</button>
+                    </span>
                 </div>
                 <table>
                     <thead>

@@ -1,33 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { getData } from "../adapter/Axio";
+import React from "react";
 import "../styles/TrendingPet.css";
 
-const TrendingPet = ({ title }) => {
-  const [pets, setPets] = useState([]);
+const TrendingPet = ({ title, trendingPets }) => {
   
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const request = await getData("/germanshepherd/images");
-        setPets(request.data.message);
-        return request;
-        
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
-    <div className="TrendingPet">
-    {pets? 
+    <div className="trending__pet">
+    {trendingPets? 
       <div>
         <h2>{title}</h2>
         <div className="row__posters">
-          {pets?.map((imageUrl, i) => (
+          {trendingPets?.map((imageUrl, i) => (
             <img className="row__poster row__posterLarge" key={i} src={imageUrl} alt={title} />
           ))}
         </div>

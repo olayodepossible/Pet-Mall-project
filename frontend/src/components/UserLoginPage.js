@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { signUpData } from "../features/user/userSlice";
 
 
-const UserLoginPage = ({setSignIn, setShowLogin, setEmail = "", setIsLogin}) => {
+const UserLoginPage = ({setSignUp, setShowLogin, setEmail = "", setIsLogin}) => {
     const dispatch = useDispatch();
   
   const emailRef = useRef(null);
@@ -33,6 +33,7 @@ const UserLoginPage = ({setSignIn, setShowLogin, setEmail = "", setIsLogin}) => 
 
   return (
     <div className="signupPage login__container">
+    <button className="removeSignUp" onClick={(e) => { e.preventDefault(); setShowLogin(false); return setSignUp(false)}}>&times;</button>
       <form>
         <h1>Log In</h1>
         <input type="email" placeholder="Email" ref={emailRef} defaultValue={setEmail }  />
@@ -43,7 +44,7 @@ const UserLoginPage = ({setSignIn, setShowLogin, setEmail = "", setIsLogin}) => 
 
         <h4>
           <span className="signupPage__gray">New here? </span>
-          <span className="signupPage__link" onClick={() => {setSignIn(true)}}>
+          <span className="signupPage__link" onClick={() => {setSignUp(true)}}>
             Sign Up now.
           </span>
         </h4>
