@@ -24,7 +24,7 @@ function App() {
     
         <Router>
           <Routes>
-            <Route exact path="/pet-mall" element={<LandingPage  setIsLogin={setIsLogin} isLogin={isLogin}/>} />
+            <Route exact path="/" element={<LandingPage  setIsLogin={setIsLogin} isLogin={isLogin}/>} />
             <Route exact path="/pet-mall/login" element={<LoginPage setIsLogin={setIsLogin}/>}/>
             <Route exact path="/pet-mall/login-page" element={<UserLoginPage setIsLogin={setIsLogin}/>}/>
             <Route exact path="/pet-mall/signup" element={<SignUpPage setIsLogin={setIsLogin}/>}/>

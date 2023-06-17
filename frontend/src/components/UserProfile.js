@@ -12,7 +12,7 @@ const UserProfile = ({setIsLogin}) => {
     <div className="profilePage">
       <div>
         <img
-          onClick={() => history("/pet-mall")}
+          onClick={() => history("/")}
           className="nav__logo"
           src="/pet-mall-logo.jpg"
           alt="logo"
@@ -41,7 +41,7 @@ const UserProfile = ({setIsLogin}) => {
                   </div>
                 );
               })}
-              <button onClick={() => {setIsLogin(false); return history("/pet-mall")}} className="profile__signout">
+              <button onClick={() => {setIsLogin(false); return history("/")}} className="profile__signout">
                 Sign Out
               </button>
             </div>

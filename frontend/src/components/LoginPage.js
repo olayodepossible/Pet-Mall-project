@@ -30,7 +30,7 @@ const LoginPage = ({setIsLogin}) => {
         <div className="nav__contents">
           <div>
             <img
-            onClick={(e) => {e.preventDefault(); return history("/pet-mall")}}
+            onClick={(e) => {e.preventDefault(); return history("/")}}
               className="login__logo"
               src="/pet-mall-logo.jpg"
               alt="logo"

@@ -24,7 +24,7 @@ const Navbar = ({user, pageTitle, quantity, itemsInCart, removeFromCart, setItem
       <div className="nav__contents">
         <div >
           <img
-            onClick={(e) => { e.preventDefault(); return history("/pet-mall")}}
+            onClick={(e) => { e.preventDefault(); return history("/")}}
             className="nav__logo"
             src="/pet-mall-logo.jpg"
             alt="logo"

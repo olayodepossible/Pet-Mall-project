@@ -46,7 +46,7 @@ const SignUpPage = ({showLogin, setShowLogin, setEmail, setIsLogin}) => {
       history("/pet-mall/profile")
     } catch (error) {
       console.log('error', error)
-      history("/pet-mall")
+      history("/")
     }
   };
 

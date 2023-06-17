@@ -9,7 +9,7 @@ const Payment = ({user}) => {
     <div className="payment__container">
       <div>
           <img
-            onClick={(e) => {e.preventDefault(); return history("/pet-mall")}}
+            onClick={(e) => {e.preventDefault(); return history("/")}}
             className="nav__logo"
             src="/pet-mall-logo.jpg"
             alt="logo"
@@ -29,7 +29,7 @@ const Payment = ({user}) => {
         </div>
 
         <div className="payment__form">
-          <form onSubmit={(e) => { e.preventDefault(); return history("/pet-mall")}}>
+          <form onSubmit={(e) => { e.preventDefault(); return history("/")}}>
             <div className="payment__group">
               <label>First name</label>
               <input id="first-name" name="first-name" className="payment__field" placeholder="First Name" defaultValue={user.firstName} />
