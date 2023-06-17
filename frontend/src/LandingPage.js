@@ -14,7 +14,7 @@ export const LandingPage = ({isLogin, setIsLogin}) => {
     <div className="home">
       <Navbar isLandingPage={true} setIsLogin={setIsLogin} isLogin={isLogin}/>
       <CarouselSlider />
-      <TrendingPet title="TRENDING-PET" fetchUrl={requests.fetchTrendingPet} />
+      <TrendingPet title="TRENDING-PET" />
       <FlippableCard  dataList={pets} btnAction={"Visit Store"}/>
     </div>
   );

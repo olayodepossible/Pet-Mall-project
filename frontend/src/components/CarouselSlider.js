@@ -4,6 +4,7 @@ import { getData, getPetMallData } from "../adapter/Axio";
 import { useDispatch } from "react-redux";
 import { petData } from "../features/pet/petSlice";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import requests from "../adapter/RequestEndpoints";
 
 const CarouselSlider = () => {
   const [petImages, setPetImages] = useState([]);
@@ -11,13 +12,21 @@ const CarouselSlider = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const req = await getData("/bulldog/images");
-      const petResp = await getPetMallData("/pets/store");
-      dispatch(petData(petResp.data));
-      const pet = req.data.message.slice(0, 11);
-      setPetImages([...pet]);
 
-      return req;
+      try {
+        const req = await getData("/bulldog/images");
+        const petResp = await getPetMallData("/pets/store");
+        dispatch(petData(petResp.data));
+        const pet = req.data.message.slice(0, 11);
+        setPetImages([...pet]);
+
+        return req;
+        
+      } catch (error) {
+        console.error('Error:', error);
+        return;
+      }
+      
     };
     fetchData();
   }, []);

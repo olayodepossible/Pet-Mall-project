@@ -1,9 +1,12 @@
 import React, { useState, useRef} from "react";
+import { useNavigate } from 'react-router-dom'
 import "../styles/LoginPage.css";
 import SignUpPage from "./SignUpPage";
 import UserLoginPage from "./UserLoginPage";
 
 const LoginPage = ({setIsLogin}) => {
+
+  const history = useNavigate();
 
   const [signin, setSignIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -27,6 +30,7 @@ const LoginPage = ({setIsLogin}) => {
         <div className="nav__contents">
           <div>
             <img
+            onClick={(e) => {e.preventDefault(); return history("/pet-mall")}}
               className="login__logo"
               src="/pet-mall-logo.jpg"
               alt="logo"

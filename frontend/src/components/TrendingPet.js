@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import { getData } from "../adapter/Axio";
 import "../styles/TrendingPet.css";
 
-const TrendingPet = ({ title, fetchUrl }) => {
+const TrendingPet = ({ title }) => {
   const [pets, setPets] = useState([]);
   
 
   useEffect(() => {
     const fetchData = async () => {
-      const request = await getData(fetchUrl);
-      setPets(request.data.message);
-      return request;
+      try {
+        const request = await getData("/germanshepherd/images");
+        setPets(request.data.message);
+        return request;
+        
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     fetchData();
